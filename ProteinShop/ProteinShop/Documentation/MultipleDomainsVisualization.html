@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>ProteinShop User's Manual - Multiple Domains Visualization</title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.1  (Linux)">
+  <meta name="CREATED" content="20041206;16311400">
+  <meta name="CHANGED" content="20041209;16060700">
+</head>
+<body dir="ltr" lang="en-US">
+<h1>Visualization of Multiple Models and Multiple Chains </h1>
+<p><br>
+ProteinShop supports visualization of PDB files containing
+single and multiple protein structures. There are two types of PDB
+files containing multiple structures: those that contain Multiple
+Models and those that contain Multiple Chains. The user can visualize
+those by editing the ProteinShop's configuration file
+("ProteinShop.cfg"). </p>
+<h2>Multiple Models</h2>
+<p>Usually, NMR results provide different conformations for one
+structure because the protein sample was in liquid state under NMR
+experiments. All these conformations are structurally closed to each
+other. For this kind of PDB file, the user can either show one
+conformation or superimpose all the conformations. The selection is
+inside the ProteinCreator section in ProteinShop.cfg file. The default
+selection is the first model.<br>
+<br>
+For example, to load a single
+(the first) model from a pdb file : </p>
+<pre>Section ProteinCreator<br>        ...<br>        multipleModel 1<br>EndSection</pre>
+<p style="color: rgb(0, 0, 0);">Change number 1 to different number(s)
+for
+different model(s) selection. To load all the models, either comment
+out the multipleModel tag or write all the model numbers. </p>
+<p style="margin-bottom: 0in; color: rgb(0, 0, 0);">For example, to
+load the first and third model from a pdb file : </p>
+<pre style="color: rgb(0, 0, 0);">Section ProteinCreator
+        ...
+        multipleModel 1 3
+EndSection</pre>
+<p style="margin-bottom: 0in; color: rgb(0, 0, 0);">To load all models
+from a pdb file : </p>
+<pre style="color: rgb(0, 0, 0);">Section ProteinCreator
+        ...
+ #      multipleModel 
+EndSection</pre>
+<h2>Multiple Chains</h2>
+<p>When a protein structure has more than one chain, 
+ProteinShop may display some or
+all of its chains. The selection is inside the ProteinCreator section in
+ProteinShop.cfg file. The default chain selection is "chain A".
+<br>
+<br>
+For example, to load the chain A from a pdb file : </p>
+<pre>Section ProteinCreator<br>        ...<br>        chainSelection A<br>EndSection</pre>
+<p style="margin-bottom: 0in; color: rgb(0, 0, 0);">Change letter A to
+different letter(s) for
+different chain(s) selection. To load all the chains, either comment
+out the chainSelection tag or write all the chain ids.</p>
+<p style="margin-bottom: 0in; color: rgb(0, 0, 0);"><br>
+For example,
+to load the chain A and C from a pdb file : </p>
+<p style="margin-bottom: 0in; color: rgb(0, 0, 0);"><br>
+</p>
+<pre style="color: rgb(0, 0, 0);">Section ProteinCreator
+        ...
+        chainSelection A C
+EndSection</pre>
+<p><br>
+To load all the chains :</p>
+<pre>Section ProteinCreator<br>        ...<br> #      chainSelection <br>EndSection</pre>
+<p><br>
+<br>
+</p>
+</body>
+</html>

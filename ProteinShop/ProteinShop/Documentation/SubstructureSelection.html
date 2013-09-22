@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Substructure Selection</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Substructure Selection</H1>
+
+As mentioned in <A HREF="ProteinModel.html">Section&nbsp;1.1.2</A>, ProteinShop represents proteins on three levels of hierarchy&nbsp;- graph of bonded atoms, chain of amino acid residues, and chain of secondary structures. Many protein manipulation operations require the selection of protein substructures.
+
+<H2><A NAME="AtomSelection">Atom Selection</H2>
+
+Selecting individual atoms may be necessary in <A HREF="ViewpointNavigation.html">viewpoint navigation</A>, to move the camera's view center point to an atom's position. Atom selection mode is entered by pressing the <B>z</B>&nbsp;hotkey. After that, an atom is selected by clicking the left mouse button. As the mouse button is clicked, ProteinShop calculates a ray passing through the mouse cursor position into the scene, and selects that atom whose van-der-Waals sphere that ray intersects first. In other words, if the current rendering mode includes van-der-Waals sphere rendering, atom selection works in a <EM>WYSIWYG</EM> (&quot;what you see is what you get&quot;) fashion&nbsp;- the selected atom will be the one whose van-der-Waals sphere is visible directly underneath the mouse cursor.
+
+<H2><A NAME="ResidueSelection">Amino Acid Residue Selection</H2>
+
+Individual amino acid residues can be selected in two different ways. First, residues can be selected according to chain order using the &quot;Residue index&quot; slider inside the <A HREF="DialogWindowReference.html"ResidueDialog">Residue Dialog</A>. Second, residues can be selected directly by holding down the <B>&lt;Alt&gt;</B>&nbsp;modifier key and clicking the left mouse button inside the main display window. Direct selection of residues always works in WYSIWYG fashion. When clicking on any part of the protein visualization inside the main display window, ProteinShop will select the residue &quot;owning&quot; the selected visualization part.<P>
+
+Some rendering parts are not associated with individual residues, and can therefore not be used to select residues. These include hydrogen bonds, which are always associated with two residues, structure cartoons, which are associated with an entire secondary structure, and collision spheres, which are associated with two atoms from typically two different residues. Rendering modes suitable for residue selection include van-der-Waals spheres, bond sticks, hydrogen bond sites, hydrogen cages, and the backbone polylines that are rendered when all other rendering modes are disabled.<P>
+
+The currently selected amino acid residue is highlighted by rendering it in the <A HREF="RenderingFeatures.html">bond sticks rendering mode</A>, see Figure&nbsp;1. This means that if the current rendering mode includes bond stick rendering, the currently selected residue will not be distinguishable from the rest of the protein.
+
+<TABLE WIDTH=100% CELLSPACING=16 CELLPADDING=0 BORDER=0>
+<TR><TD ALIGN=CENTER><IMG SRC="SubstructureSelectionResidue.png" WIDTH=450 HEIGHT=335></TD></TR>
+<TR><TD><B>Figure 1:</B> The currently selected residue is highlighted by rendering it in the <A HREF="RenderingFeatures.html">bond sticks rendering mode</A>.</TD></TR>
+</TABLE>
+
+<H2><A NAME="StructureSelection">Secondary Structure Selection</H2>
+
+Secondary structure selection works analogously to residue selection. A secondary structure can either be selected via the &quot;Structure index&quot; slider in the <A HREF="DialogWindowReference.html#StructureDialog">Structure Dialog</A>, or by holding down the <B>&lt;Ctrl&gt;</B>&nbsp;modifier key and clicking the left mouse button inside the main display window. Direct structure selection also always works in WYSIWYG fashion; suitable rendering modes are van-der-Waals spheres, bond sticks, structure cartoons, hydrogen bond sites, hydrogen cages, and the default backbone polylines.<P>
+
+The currently selected secondary structure will be highlighted by surrounding it with a green translucent box, see Figure&nbsp;2. This box doubles as the 3D&nbsp;interaction widget used to transform the selected structure by translating and rotating it in three dimensions.
+
+<TABLE WIDTH=100% CELLSPACING=16 CELLPADDING=0 BORDER=0>
+<TR><TD ALIGN=CENTER><IMG SRC="SubstructureSelectionStructure.png" WIDTH=450 HEIGHT=335></TD></TR>
+<TR><TD><B>Figure 2:</B> The currently selected secondary structure is highlighted by surrounding it with a transparent green box, the 3D&nbsp;interaction widget.</TD></TR>
+</TABLE>
+
+A special case of secondary structure selection is toggling the activation state of coil regions for subsequent structure dragging. Coil regions can only be activated/deactivated directly, by holding down both the <B>&lt;Shift&gt;+&lt;Ctrl&gt;</B>&nbsp;modifier keys and clicking the left mouse button over the visualization of a coil region in the main display window (mnemonic: activate/deactivate coil regions by selecting them while holding down the <B>&lt;Shift&gt;</B>&nbsp;modifier key). Active coil regions are highlighted by rendering their structure cartoons in yellow.
+
+</BODY>
+</HTML>

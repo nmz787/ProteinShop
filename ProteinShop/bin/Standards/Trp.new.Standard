@@ -1,0 +1,25 @@
+HEADER                                                                  TRPS   0
+ATOM      1 N    TRP     1       1.311   0.000  -0.570  0.00  0.00      TRPS   1
+ATOM      2 HN   TRP     1       1.586  -0.621  -1.313  0.00  0.00      TRPS   2
+ATOM      3 CA   TRP     1       0.000   0.000   0.000  0.00  0.00      TRPS   3
+ATOM      4 HA   TRP     1      -0.521  -0.882  -0.342  0.00  0.00      TRPS   4
+ATOM      5 C    TRP     1      -0.656   1.196  -0.599  0.00  0.00      TRPS   5
+ATOM      6 O    TRP     1      -0.008   2.016  -1.247  0.00  0.00      TRPS   6
+ATOM      7 CB   TRP     1       0.000   0.000   1.538  0.00  0.00      TRPS   7
+ATOM      8 HB1  TRP     1      -1.024  -0.254   1.887  0.00  0.00      TRPS   8
+ATOM      9 HB2  TRP     1       0.715  -0.776   1.887  0.00  0.00      TRPS   9
+ATOM     10 CG   TRP     1       0.396   1.321   2.152  0.00  0.00      TRPS  10
+ATOM     11 CD1  TRP     1       1.625   1.931   2.108  0.00  0.00      TRPS  11
+ATOM     12 HD1  TRP     1       2.498   1.509   1.633  0.00  0.00      TRPS  12
+ATOM     13 NE1  TRP     1       1.600   3.146   2.745  0.00  0.00      TRPS  13
+ATOM     14 HE1  TRP     1       2.356   3.751   2.863  0.00  0.00      TRPS  14
+ATOM     15 CE2  TRP     1       0.312   3.354   3.187  0.00  0.00      TRPS  15
+ATOM     16 CD2  TRP     1      -0.459   2.241   2.832  0.00  0.00      TRPS  16
+ATOM     17 CE3  TRP     1      -1.813   2.203   3.169  0.00  0.00      TRPS  17
+ATOM     18 HE3  TRP     1      -2.429   1.351   2.922  0.00  0.00      TRPS  18
+ATOM     19 CZ2  TRP     1      -0.214   4.449   3.859  0.00  0.00      TRPS  19
+ATOM     20 HZ2  TRP     1       0.398   5.302   4.113  0.00  0.00      TRPS  20
+ATOM     21 CZ3  TRP     1      -2.337   3.301   3.833  0.00  0.00      TRPS  21
+ATOM     22 HZ3  TRP     1      -3.388   3.302   4.082  0.00  0.00      TRPS  22
+ATOM     23 CH   TRP     1      -1.567   4.401   4.191  0.00  0.00      TRPS  23
+ATOM     24 HH   TRP     1      -2.019   5.221   4.729  0.00  0.00      TRPS  24

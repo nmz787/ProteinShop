@@ -1,0 +1,18 @@
+HEADER                                                                  HSDS    
+ATOM      1 N    HIS     1       1.311   0.000  -0.570  0.00  0.00      HSDS   1
+ATOM      2 HN   HIS     1       1.568  -0.566  -1.361  0.00  0.00      HSDS   2
+ATOM      3 CA   HIS     1       0.000   0.000   0.000  0.00  0.00      HSDS   3
+ATOM      4 HA   HIS     1      -0.539  -0.867  -0.353  0.00  0.00      HSDS   4
+ATOM      5 C    HIS     1      -0.702   1.231  -0.460  0.00  0.00      HSDS   5
+ATOM      6 O    HIS     1      -1.308   1.949   0.333  0.00  0.00      HSDS   6
+ATOM      7 CB   HIS     1       0.000   0.000   1.538  0.00  0.00      HSDS   7
+ATOM      8 HB1  HIS     1       0.535   0.907   1.892  0.00  0.00      HSDS   8
+ATOM      9 HB2  HIS     1       0.535  -0.907   1.892  0.00  0.00      HSDS   9
+ATOM     10 CG   HIS     1      -1.381   0.000   2.124  0.00  0.00      HSDS  10
+ATOM     11 CD2  HIS     1      -2.343  -0.951   1.936  0.00  0.00      HSDS  11
+ATOM     12 HD2  HIS     1      -2.310  -1.823   1.295  0.00  0.00      HSDS  12
+ATOM     13 ND1  HIS     1      -1.832   0.900   3.095  0.00  0.00      HSDS  13
+ATOM     14 HD1  HIS     1      -1.313   1.669   3.469  0.00  0.00      HSDS  14
+ATOM     15 NE2  HIS     1      -3.356  -0.537   2.750  0.00  0.00      HSDS  15
+ATOM     16 CE1  HIS     1      -3.081   0.555   3.439  0.00  0.00      HSDS  16
+ATOM     17 HE1  HIS     1      -3.735   1.069   4.143  0.00  0.00      HSDS  17

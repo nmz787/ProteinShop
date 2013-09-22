@@ -1,0 +1,17 @@
+HEADER                                                                  VALS   0
+ATOM      1 N    VAL     1       1.311   0.000  -0.570  0.00  0.00      VALS   1
+ATOM      2 HN   VAL     1       1.571  -0.571  -1.357  0.00  0.00      VALS   2
+ATOM      3 CA   VAL     1       0.000   0.000   0.000  0.00  0.00      VALS   3
+ATOM      4 HA   VAL     1      -0.532  -0.873  -0.348  0.00  0.00      VALS   4
+ATOM      5 C    VAL     1      -0.723   1.219  -0.460  0.00  0.00      VALS   5
+ATOM      6 O    VAL     1      -0.296   2.343  -0.204  0.00  0.00      VALS   6
+ATOM      7 CB   VAL     1       0.000   0.000   1.500  0.00  0.00      VALS   7
+ATOM      8 HB   VAL     1       0.383   0.982   1.849  0.00  0.00      VALS   8
+ATOM      9 CG1  VAL     1      -1.450  -0.154   1.988  0.00  0.00      VALS   9
+ATOM     10 HG11 VAL     1      -1.470  -0.156   3.099  0.00  0.00      VALS  10
+ATOM     11 HG12 VAL     1      -2.061   0.693   1.609  0.00  0.00      VALS  11
+ATOM     12 HG13 VAL     1      -1.869  -1.111   1.609  0.00  0.00      VALS  12
+ATOM     13 CG2  VAL     1       0.962  -1.096   1.988  0.00  0.00      VALS  13
+ATOM     14 HG21 VAL     1       0.975  -1.110   3.099  0.00  0.00      VALS  14
+ATOM     15 HG22 VAL     1       0.623  -2.084   1.609  0.00  0.00      VALS  15
+ATOM     16 HG23 VAL     1       1.986  -0.887   1.609  0.00  0.00      VALS  16

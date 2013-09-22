@@ -1,0 +1,766 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with jLaTeX2HTML 2002-2-1 (1.70) JA patch-2.0
+patched version by:  Kenshi Muto, Debian Project.
+* modified by:  Shige TAKENO
+LaTeX2HTML 2002-2-1 (1.70),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Energy Visualization Pipeline User's Guide</TITLE>
+<META NAME="description" CONTENT="Energy Visualization Pipeline User's Guide">
+<META NAME="keywords" CONTENT="evpug">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="jLaTeX2HTML v2002-2-1 JA patch-2.0">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="evpug.css">
+
+</HEAD>
+
+<BODY >
+
+<P>
+<H1 ALIGN="CENTER">Energy Visualization Pipeline User's Guide</H1>
+<DIV>
+
+</DIV>
+
+<P>
+Jump ahead to the <A HREF="#examples">examples</A>.
+
+<P>
+The energy visualization system renders force fields as a semitransparent cloud
+around the various geometric tinkertoys that can be used to display molecular
+structure.  Where the cloud is thickest, the forces are strongest.  Where the
+cloud is thin or nonexistent, the forces are reaching equilibrium.  Rendering is
+straightforward, done by hardware with volume textures.  You control the
+resolution detail of the texture and all important aspects of the transfer
+function, which is tailored to <TT>ProteinShop</TT>'s functionality.
+
+<P>
+The energy rendering system is built on top of <TT>ProteinShop</TT>'s older energy
+visualization feature (based on colored atom spheres), which remains available.
+In particular, the controls for that system are also used by the this system.
+Including both the original settings and the new ones added for this system, you
+have a total of eight settings to control the transfer function and determine
+the general appearance and information conveyed by the energy cloud.  The
+assemblage of these settings is illustrated below.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="pipeline"></A><A NAME="269"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 1:</STRONG>
+The energy visualization pipeline.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+  WIDTH="914" HEIGHT="410" ALIGN="BOTTOM" BORDER="0"
+ SRC="./pipeline.png"
+ ALT="Image pipeline">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<OL>
+<LI><A NAME="channel"></A> <B>Channel</B>:  You can show either the subset sum of the
+energy terms selected in the discriminator (<A HREF="#discriminator">2</A>), or the subset
+sum of their gradient magnitudes.  You control the channel through the <EM>Input Channel</EM> toggles in the <EM>Energy Rendering Dialog</EM>.
+
+<P>
+</LI>
+<LI><A NAME="discriminator"></A> <B>Discriminator</B>:  This is the block of toggles
+labeled <EM>Visualized Energy Components</EM> in the <EM>Energy Visualization
+Dialog</EM>.  You can use these toggles to select an arbitrary subset of the energy
+component terms to be visualized.  Those not selected will be ignored.  This
+setting and the clamp (<A HREF="#clamp">3</A>) are part of <TT>ProteinShop</TT>'s original energy
+visualization functionality.
+
+<P>
+</LI>
+<LI><A NAME="clamp"></A> <B>Clamp</B>:  This is the <EM>Energy Mapping Range</EM>
+interval in the <EM>Energy Visualization Dialog</EM>.  If <EM>Max</EM> is no more than
+<EM>Min</EM>, it defaults to <EM>Min</EM> + 100.  This interval helps eliminate
+outliers from the data, which might otherwise hide detailed information
+elsewhere.  Its exact effect is detailed below.
+
+<P>
+</LI>
+<LI><A NAME="resolution"></A> <B>Resolution</B>:  Use the <EM>Texels per angstrom</EM>
+slider in the <EM>Energy Rendering Dialog</EM> to control the resolution of the texture.  The resolution
+you select may be automatically lowered to observe constraints imposed by your
+platform's OpenGL rendering capabilities and the value of the variable <TT>EnergyCalculator/maxBuffer</TT> in <TT>ProteinShop.cfg</TT>.
+
+<P>
+</LI>
+<LI><A NAME="radial-specifier"></A> <B>Radial specifier</B>:  Use the <EM>Radius
+multiplier</EM> slider and the <EM>Radial Basis Function Coefficient Type</EM> toggles
+in the <EM>Energy Rendering Dialog</EM> to control the radius of the basis function, which determines how
+much an atom's energy spreads into the texture.  The coefficient type can be
+either uniform or relative; in the latter case, equal to either of each atom's
+physical or Van der Waals radius.  The final radius is defined in angstroms.
+
+<P>
+</LI>
+<LI><A NAME="classifier"></A> <B>Classifier</B>:  Use the <EM>Classifier</EM> menu in the
+<EM>Energy Rendering Dialog</EM> to select one classification function, which maps atoms to a limited range
+of integers [0,<EM>m</EM>), where <EM>m</EM> is the number of classifications in the
+function's range.  The classifier's domain consists of everything <TT>ProteinShop</TT> knows
+about the atoms, including their element types, positions, topological
+relationships, current force field states, and the secondary structures and
+residues to which they belong.  Three classifiers are provided in this release,
+detailed below. More can easily be added, also detailed below.
+
+<P>
+</LI>
+<LI><A NAME="normalizing-interval"></A> <B>Normalizing interval</B>:  Use the <EM>Energy Rendering Dialog</EM> to
+control this interval, which determines how the cumulative atom energy values
+from the input channel are normalized into the domain of the color function
+(<A HREF="#color-function">8</A>).  It can be computed automatically based on the current
+energy levels or set to an arbitrary value, according to the value of the <EM>Calculate automatically</EM> toggle.
+
+<P>
+</LI>
+<LI><A NAME="color-function"></A> <B>Color function</B>:  Each integer in the
+classifier's range is associated with a color function.  The color function maps
+the atom's energy to a color.  The colors from all classifications are combined
+in a weighted average to produce the final color and transparency of the
+texture.  You can assign color functions to classifications using the box
+immediately below the <EM>Classifier</EM> menu in the <EM>Energy Rendering Dialog</EM>.  The <EM>Next</EM> and
+<EM>Previous Class</EM> buttons let you cycle through the classifications, and the
+<EM>Color function for</EM> <B>x</B> menu lets you assign the color function to the
+currently selected classification.
+
+<P>
+</LI>
+</OL>
+
+<P>
+The data store in Figure <A HREF="#pipeline">1</A> labeled <EM>Atom Energy</EM> is the energy
+calculator plug-in, which provides real-valued energy component terms and
+gradient vectors for each atom in the molecule.  These numbers are processed
+according to the channel selected to produce a single floating-point value for
+each atom.  Only the component terms selected in the discriminator are included.
+ If no terms are selected in the discriminator, every atom's value will be zero.
+ The number of toggles in the discriminator, <EM>c</EM>, is determined by the
+plug-in.  For our AMBER plug-in, <EM>c</EM> = 5.  If, for example, a solvation term
+is added to the force field, it will appear in the user interface as a sixth
+toggle in the discriminator.
+
+<P>
+Let the discriminator function <IMG
+ WIDTH="66" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$D(j) = 1$"> if the <IMG
+ WIDTH="24" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="$j^{th}$"> energy component is
+selected and 0 if not, <IMG
+ WIDTH="68" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$0 \leq j &lt; c$">.  We compute the value <IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$e_i$"> of the
+<IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$i^{th}$"> atom as
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+e_i = \sum_{j=0}^{c-1} D(j) \cdot \left \{
+    \begin{array}{ll}
+        A^i_j                       & \mathrm{for\:subset\:sum} \\
+        \| \nabla \bar{A}^i_1 \|    & \mathrm{for\:gradients}
+    \end{array}
+\right \}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="atom-energy"></A><IMG
+ WIDTH="311" HEIGHT="58" BORDER="0"
+ SRC="img6.png"
+ ALT="\begin{displaymath}
+e_i = \sum_{j=0}^{c-1} D(j) \cdot \left \{
+\begin{array}{ll...
+...{A}^i_1 \Vert &amp; \mathrm{for\:gradients}
+\end{array}\right \}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(1)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+The value of <IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$e_i$"> is then clamped, and spread through the texel block by means
+of the radial basis and classification functions.  The radius of the basis
+function <IMG
+ WIDTH="10" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$s$"> is determined by the radial specifier, equal to the product of a
+multiplier chosen by the user with a slider and one of three coefficients:  a
+constant (chosen with another slider), the atom's radius, or the atom's Van der
+Waals radius.  The basis function <IMG
+ WIDTH="37" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$f(r_i)$"> is a smooth curve similar to that
+used for the implicit modeling of molecular surfaces.  It depends on the texel's
+distance <IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img9.png"
+ ALT="$r_i$"> from the center of each atom:
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+R(r_i) = \left \{
+\begin{array}{ll}
+1 - \frac{3r_i^2}{s^2} + \frac{2r_i^3}{s^3} & \mathrm{if} \: r_i < s \\
+0                                           & \mathrm{otherwise}
+\end{array}
+\right \}.
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="radial-basis"></A><IMG
+ WIDTH="279" HEIGHT="54" BORDER="0"
+ SRC="img10.png"
+ ALT="\begin{displaymath}
+R(r_i) = \left \{
+\begin{array}{ll}
+1 - \frac{3r_i^2}{s^2} +...
+...f} \: r_i &lt; s \\
+0 &amp; \mathrm{otherwise}
+\end{array}\right \}.
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(2)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+The voxel block store holds texel magnitudes for each classification.  Let the
+classification function <IMG
+ WIDTH="77" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$L(i,k) = 1$"> if the <IMG
+ WIDTH="22" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img5.png"
+ ALT="$i^{th}$"> atom belongs to the
+<IMG
+ WIDTH="25" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$k^{th}$"> classification and 0 if not; <IMG
+ WIDTH="76" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$0 \leq k &lt; m$"> and <IMG
+ WIDTH="68" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$0 \leq i &lt; n$">, where
+<IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$n$"> is the number of atoms in the molecule.  Given the atom energy value <IMG
+ WIDTH="16" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$e_i$">
+(<A HREF="#atom-energy">1</A>), the radial basis <IMG
+ WIDTH="40" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$R(r_i)$"> (<A HREF="#radial-basis">2</A>), and the
+classifier <IMG
+ WIDTH="48" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$L(i,k)$">, the texel magnitude <IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$t_k$"> is
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+t_k = \sum_{i=0}^{n-1} e_i \cdot R(r_i) \cdot L(i,k) .
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><A NAME="texel-magnitude"></A><IMG
+ WIDTH="182" HEIGHT="55" BORDER="0"
+ SRC="img19.png"
+ ALT="\begin{displaymath}
+t_k = \sum_{i=0}^{n-1} e_i \cdot R(r_i) \cdot L(i,k) .
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(3)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+The normalizing interval <IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img20.png"
+ ALT="$N(t_k)$"> maps texel magnitudes to the unit interval
+(clamp and scale) for use with color functions.  The color function
+<IMG
+ WIDTH="75" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$C_k(N(t_k))$"> implements an arbitrary continuous color map.  <TT>ProteinShop</TT> provides a
+dozen of these, including intensity functions (ranging from a component color at
+zero to white at one through different paths), constant functions, and
+invisibility to hide selected parts of the molecule.  The final texel color <IMG
+ WIDTH="9" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$t$">
+is computed from the classified texel magnitudes <IMG
+ WIDTH="17" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$t_k$"> (<A HREF="#texel-magnitude">3</A>)
+as a weighted average, defined as
+
+<P>
+<BR>
+<DIV ALIGN="RIGHT">
+
+<!-- MATH
+ \begin{equation}
+t = \frac{\sum_{k=0}^{m-1} N(t_k) \cdot C_k(N(t_k))}{\sum_{k=0}^{m-1} N(t_k)} .
+\end{equation}
+ -->
+<TABLE WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE"><TD ALIGN="CENTER" NOWRAP><IMG
+ WIDTH="206" HEIGHT="51" BORDER="0"
+ SRC="img23.png"
+ ALT="\begin{displaymath}
+t = \frac{\sum_{k=0}^{m-1} N(t_k) \cdot C_k(N(t_k))}{\sum_{k=0}^{m-1} N(t_k)} .
+\end{displaymath}"></TD>
+<TD WIDTH=10 ALIGN="RIGHT">
+(4)</TD></TR>
+</TABLE>
+<BR CLEAR="ALL"></DIV><P></P>
+
+<P>
+This pipeline runs in <!-- MATH
+ $O(n \cdot (s \cdot q)^3)$
+ -->
+<IMG
+ WIDTH="95" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img24.png"
+ ALT="$O(n \cdot (s \cdot q)^3)$"> time, where <IMG
+ WIDTH="11" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img25.png"
+ ALT="$q$"> is the
+resolution of the texture grid, by classifying each atom and determining which
+portion of the texture grid it will affect prior to iterative computation of
+Equation (<A HREF="#texel-magnitude">3</A>).  The pixel transfer operations will require
+<IMG
+ WIDTH="50" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img26.png"
+ ALT="$O(N^3)$"> time in the width of the texel block regardless, but hardware makes
+this part of the computation relatively fast.  In practice, depending on the
+size of the molecule and the resolution chosen, the execution of this pipeline
+requires anywhere from a fraction of a second to half a minute or more, but all
+of the textures shown here were produced in less than ten seconds on an obsolete
+machine (Pentium III, 733 MHz) with no 3D texture capability at all.  Once
+generated, the textures can be viewed at interactive refresh rates, using
+suitable graphics hardware.
+
+<P>
+
+<H1><A NAME="SECTION00010000000000000000"></A>
+<A NAME="examples"></A>
+<BR>
+Examples
+</H1>
+
+<P>
+There are three classifiers in the current release:  <EM>Unity</EM>, <EM>Hydrogen
+Bond</EM>, and <EM>Phobic-Philic</EM>.  We provide an example of each.  All three used
+the default <A HREF="#clamp">clamp</A> of [0, 100] and selected all components
+in the <A HREF="#discriminator">discriminator</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="before-and-after"></A><A NAME="287"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2:</STRONG>
+Configurations of CASP6 target T0209 before
+and after local minimization inside <TT>ProteinShop</TT>.  The intensity of color shows the
+relative magnitude of the AMBER energy terms for each atom.
+<A HREF="#classifier"><EM>Classifier</EM></A>:  Unity.
+<A HREF="#resolution"><EM>Resolution</EM></A>:  2.6 texels per angstrom.
+<A HREF="#radial-specifier"><EM>Radial specifier</EM></A>:  1 times Van der Waals.
+<A HREF="#channel"><EM>Input Channel</EM></A>:  Subset sum.
+<A HREF="#normalizing-interval"><EM>Normalizing interval</EM></A>:  [0,508.3].
+</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+  WIDTH="860" HEIGHT="910" ALIGN="BOTTOM" BORDER="0"
+ SRC="./T209-before-and-after.png"
+ ALT="Image T209-before-and-after">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<EM>Unity</EM> is the default classifier, defined as <!-- MATH
+ $L(i,1) = 1, i \in [0,n)$
+ -->
+<IMG
+ WIDTH="143" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img27.png"
+ ALT="$L(i,1) = 1, i \in [0,n)$">,
+which basically applies the same color function to the entire molecule.  The
+configuration shown in Figure <A HREF="#before-and-after">2</A> was locally optimized
+inside <TT>ProteinShop</TT> by our energy plug-in.  The initial state was used to initialize
+the normalizing interval (the <EM>Calculate automatically</EM> toggle was set), and
+that normalizing interval was also used for the final state (i.e. the toggle was
+cleared).  You can use the <EM>Record Dialog</EM> to establish the normalizing
+interval to use for animating an entire minimization run using one of the
+iterations as a baseline.  Or, you can simply flip back and forth between
+interesting points.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="1pgx-hbond"></A><A NAME="288"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3:</STRONG>
+Two views of 1pgx showing gradients over hydrogen
+bond sites.  Top:  atoms that belong to bonded amide groups are blue, bonded
+carboxyl groups are red, all other atoms are green.  Bottom:  atoms not
+belonging to bonded dipoles are invisible.
+<A HREF="#classifier"><EM>Classifier</EM></A>:  Hydrogen Bond.
+<A HREF="#resolution"><EM>Resolution</EM></A>:  4.06 texels per angstrom.
+<A HREF="#radial-specifier"><EM>Radial specifier</EM></A>:  1 times Van der Waals.
+<A HREF="#channel"><EM>Input Channel</EM></A>:  Gradient norm.
+<A HREF="#normalizing-interval"><EM>Normalizing interval</EM></A>:  automatic.
+</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+  WIDTH="800" HEIGHT="700" ALIGN="BOTTOM" BORDER="0"
+ SRC="./1pgx-hbond.png"
+ ALT="Image 1pgx-hbond">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The <EM>Hydrogen Bond</EM> classifier distinguishes atoms belonging to dipoles
+forming hydrogen bonds from the others.  Figure <A HREF="#1pgx-hbond">3</A> shows two views
+of 1pgx made with this classifier that are identical except in their energy
+rendering.  The utility of the invisible color function is demonstrated by its
+use in this case, because the dipole atoms are small in number.  The force
+fields of atoms from small classes can be overwhelmed or obscured by large
+numbers of atoms in other classes.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="1pgx-phobic-philic"></A><A NAME="289"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 4:</STRONG>
+Different configuration of 1pgx showing
+gradients over ball-and-stick geometry with the Corey-Pauling-Koltun (CPK) color
+scheme.  Atoms belonging to hydrophilic residues are blue, hydrophobic orange,
+and unclassified residues at the ends of the chain are green.
+<A HREF="#classifier"><EM>Classifier</EM></A>:  Phobic-Philic.
+<A HREF="#resolution"><EM>Resolution</EM></A>:  4.08 texels per angstrom.
+<A HREF="#radial-specifier"><EM>Radial specifier</EM></A>:  1.5 times Van der
+    Waals.
+<A HREF="#channel"><EM>Input Channel</EM></A>:  Gradient norm.
+<A HREF="#normalizing-interval"><EM>Normalizing interval</EM></A>:  automatic.
+</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER"><IMG
+  WIDTH="800" HEIGHT="575" ALIGN="BOTTOM" BORDER="0"
+ SRC="./1pgx-phobic-philic.png"
+ ALT="Image 1pgx-phobic-philic">
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The <EM>Phobic-Philic</EM> classifier distinguishes atoms belonging to hydrophobic
+residues from those belonging to hydrophilic residues, and both of these from
+atoms whose residues are neither hydrophobic nor hydrophilic.  A larger <EM>Radius multiplier</EM> was used for Figure <A HREF="#1pgx-phobic-philic">4</A> to support a
+better understanding of the overall shape of the molecule.  This classifier can
+be used to evaluate the effects of solvation terms in the force field.
+
+<P>
+
+<H1><A NAME="SECTION00020000000000000000">
+Adding classifiers and color functions</A>
+</H1>
+
+<P>
+The classifiers and color functions were implemented in a highly modular way
+that makes the process of adding new functions to the source code almost trival.
+The actual time required depends on the complexity of the function, but a rich
+set of classifiers can easily be created in minutes based on <TT>ProteinShop</TT>'s existing
+functionality.  The four files involved in this process are
+<TT>AtomClassifier.cpp</TT>, <TT>AtomClassifier.h</TT>, <TT>ColorFunction.cpp</TT>, and
+<TT>ColorFunction.h</TT>.  We offer an example for the classifier; the color
+function is analogous but simpler.
+
+<P>
+The default classifiers are implemented as singleton instances in
+<TT>AtomClassifier.cpp</TT>, made available through a static factory method (<TT>AtomClassifier::get()</TT>).  The user interface uses this factory call in
+conjunction with <TT>AtomClassifier::numClassifiers()</TT> to initialize the menu
+in the <EM>Energy Rendering Dialog</EM>.  To add a new classifier to the system, one only needs to define a
+new subclass of AtomClassifier and add it to the singleton array in
+<TT>AtomClassifier.cpp</TT>, where one finds a code template of the following form:
+
+<P>
+<PRE>
+class Classifier : public AtomClassifier
+{
+public:
+
+    ~Classifier() {}
+    uint classify (const MD::Protein::ChainAtom &amp;atom,
+                   const ProteinState &amp;proteinState)
+    {
+    }
+    const char *className (uint classNum)
+    {
+    }
+    const char *name()
+    {
+    }
+    uint numClasses()
+    {
+    }
+};
+static Classifier f_Singleton;
+</PRE>
+
+<P>
+To add a new classifier:
+
+<P>
+
+<OL>
+<LI>Copy and paste this template into the area of <TT>AtomClassifier.cpp</TT>
+that contains the other classifiers.
+
+<P>
+</LI>
+<LI>Replace each instance of the string <TT>Classifier</TT> in the copied
+template with the name of your new subclass.  Give a unique name to the
+singleton instance.
+
+<P>
+</LI>
+<LI>Fill in the function definitions.
+
+<P>
+</LI>
+<LI>Add the address of the singleton instance to the factory array.
+
+<P>
+</LI>
+</OL>
+
+<P>
+The name functions are important to the user interface; they are used to fill in
+the menu lists and dialog labels.  The <TT>numClasses()</TT> function needs to
+return one higher than the largest possible value that can be returned by the
+<TT>classify()</TT> function.  The <TT>classify()</TT> function can, in turn, be
+anything you need for it to be.  You can also add any new members (functions or
+data) that your functionality requires.  You can also add new constructors, but
+this will probably be be more complex; see below.
+
+<P>
+As a simple example, let's implement a new classifier called
+<TT>ExampleClassifier</TT> and add it to the system.  This classifier will
+distinguish atoms belonging to Proline residues from all others.  As such, it
+makes two classes, called <EM>Proline</EM> and <EM>Not Proline</EM>.  The classifier
+itself will be called the <EM>Proline Partition</EM>.  Following steps 1, 2, and 3,
+we modify the template to produce the following code:
+
+<P>
+<PRE>
+class ExampleClassifier : public AtomClassifier
+{
+public:
+
+    ~ExampleClassifier() {}
+    uint classify (const MD::Protein::ChainAtom &amp;atom,
+                   const ProteinState &amp;proteinState)
+    {
+        Protein::Residue *residue = atom.getResidue();
+        Protein::Residue::AminoAcid type = residue-&gt;getType();
+        if ( type == Protein::Residue::PRO ) return 0;
+        else return 1;
+    }
+    const char *className (uint classNum)
+    {
+        if ( classNum == 0 ) return "Proline";
+        else if ( classNum == 1 ) return "Not Proline";
+        else return "&lt;parameter range error&gt;";
+    }
+    const char *name()
+    {
+        return "Proline Partition";
+    }
+    uint numClasses()
+    {
+        return 2;
+    }
+};
+static ExampleClassifier f_exampleSingleton;
+</PRE>
+
+<P>
+We take care to ensure that the names returned by <TT>className()</TT> correspond
+to the results produced by <TT>classify()</TT>.  In the <TT>classify()</TT> function,
+the classifier queries the atom's residue object to determine whether or not it
+is the amino acid Proline.  Fortunately (consulting <TT>Protein.h</TT>), class <TT>Protein::ChainAtom</TT> provides direct access to its associated
+<TT>Protein::Residue</TT> instance via the <TT>getResidue()</TT> method.  So, all we
+have to do is call this function, get the type of amino acid, and evaluate it.
+
+<P>
+This brings us to step 4, which requires updating the variables
+<TT>f_numDefaultClassifiers</TT> and <TT>f_defaultClassifiers</TT>.  First, increase
+the value of <TT>f_numDefaultClassifiers</TT> by one, and then add the address of
+the singleton instance to the end of the array.  Thus, if the array used to look
+like this:
+
+<P>
+<PRE>
+static const uint f_numDefaultClassifiers = 3;
+static AtomClassifier *f_defaultClassifiers[f_numDefaultClassifiers] = {
+    &amp;f_unitySingleton,
+    &amp;f_phobiPhilicSingleton,
+    &amp;f_hBondSingleton
+};
+</PRE>
+
+<P>
+The updated array will look like this:
+
+<P>
+<PRE>
+static const uint f_numDefaultClassifiers = 4;
+static AtomClassifier *f_defaultClassifiers[f_numDefaultClassifiers] = {
+    &amp;f_unitySingleton,
+    &amp;f_phobiPhilicSingleton,
+    &amp;f_hBondSingleton,
+    &amp;f_exampleSingleton
+};
+</PRE>
+
+<P>
+There is a large resource of information contained in class <TT>Protein</TT> that
+can be exploited in this manner, but other objects associated with the protein
+can be consulted as well, via the <TT>ProteinState</TT> argument.  For example, you
+can tap into the settings of its <TT>ProteinRenderer</TT>, or examine its energy
+components or force field gradient vectors through its <TT>EnergyCalculator</TT>. 
+Note that, to use the <TT>EnergyCalculator</TT>, you need the atom's linear index,
+which is not the same as its <TT>atomIndex</TT> property that comes from the PDB
+file.  However, this information can be extracted from the <TT>ProteinState</TT>
+object - as can everything that <TT>ProteinShop</TT> knows about the atom.  The fields of
+<TT>struct ProteinState</TT> are defined in <TT>Globals.h</TT>. Hint:  to get the
+linear index, iterate with <TT>Protein::ConstAtomIterator</TT> or add a new
+property to <TT>Protein::ChainAtom</TT>.  The latter approach is faster, but it
+increases the storage requirement.
+
+<P>
+Adding a constructor to the classifier might compilicate the process somewhat,
+while adding additional methods will almost certainly require additional coding
+outside of <TT>AtomClassifier.cpp</TT>.  We will address these issues separately.
+
+<P>
+<B>Constructors</B>:  If you add a new constructor, and this constructor is safe
+to execute during the static initializer, you can follow the implementation
+pattern set forth above.  If your new constructor takes no arguments, you can
+follow the pattern above exactly.  If your new constructor takes arguments, and
+your arguments are available when the static initializer runs, and the number of
+different ways the constructor can meaningully be called is fairly limited, you
+can add one singleton for each of these possible constructor calls.  For
+example, if your constructor takes an enumerated type with three possible
+values, you can define one singleton for each possible value of the enumeration:
+
+<P>
+<PRE>
+static ExampleClassifier2 f_x2fooSingleton (ENUM_VALUE_FOO);
+static ExampleClassifier2 f_x2barSingleton (ENUM_VALUE_BAR);
+static ExampleClassifier2 f_x2bazSingleton (ENUM_VALUE_BAZ);
+
+static const uint f_numDefaultClassifiers = 7;
+static AtomClassifier *f_defaultClassifiers[f_numDefaultClassifiers] = {
+    &amp;f_unitySingleton,
+    &amp;f_phobiPhilicSingleton,
+    &amp;f_hBondSingleton,
+    &amp;f_exampleSingleton,
+    &amp;f_x2fooSingleton,
+    &amp;f_x2barSingleton,
+    &amp;f_x2bazSingleton
+};
+</PRE>
+
+<P>
+<B>Additional methods</B>:  If your constructor is much more complicated than
+that, or if it requires additional configuration after construction, you will
+need to add intialization code somewhere else in <TT>ProteinShop</TT> and add the
+classifier(s) to the factory with the secondary initializer
+<TT>AtomClassifier::add()</TT>.  (You can also remove these via
+<TT>AtomClassifier::remove()</TT>).  Whenever you call the <TT>add()</TT> or
+<TT>remove()</TT> methods for classifiers or color functions, the list of objects
+available in the factory changes, so you will <EM>also</EM> need to reinitialize
+the user interface widgets that display these lists to the end user (no nice
+event notification model here, it's all done with callbacks).  These lists are
+loaded and reloaded by the function <TT>initializeVolumeDialogChoices()</TT> (close
+to the top of <TT>ProteinFltk.cpp</TT>).  At the time of this writing, this
+function is only called from <TT>loadEnergyLibrary()</TT>, but you should call it
+any time after changing the name of a function or classification, or after
+making one or more calls to <TT>add()</TT> or <TT>remove()</TT> in the classifier or
+color function factories.
+
+<P>
+The reason these hooks were built into the system is to allow the creation of
+user-editable functions.  Such a function would provide its own user interface
+(accessed either from a menu or through an existing dialog) and allow the user
+to create modifiable instances of some general function type.  It is in support
+of such features that you might need to put additional methods in your subclass.
+ As a simple example, a classifier that partitions the elements into two sets
+might allow the user to edit the membership of these sets by means of a checkbox
+list.  As a more complex example, the editor of a compound classifier might
+allow the user to specify one input classifier, and then associate each element
+of that input's range with another classifier.  Note that, in both of these
+examples, it is probably easier to hard-code them than build a fancy GUI, unless
+large numbers of different instances (partitions or compounds, in the cases of
+these examples) are commonly in use.
+
+<P>
+Of course, the implementation of such nice things will undoubtedly lead to
+demands for more features, like generalized loading and saving of classifier and
+color function instances to files, etc.  You might want to build new interfaces
+on top of the existing ones to get some code reuse out of that.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Clark Crawford
+2005-04-24
+</ADDRESS>
+</BODY>
+</HTML>

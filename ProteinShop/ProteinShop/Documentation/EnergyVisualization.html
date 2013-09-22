@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>ProteinShop User's Manual - Energy Computation and Visualization</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20050422;21432400">
+	<META NAME="CHANGED" CONTENT="20050423;2800">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1>Energy Computation and Visualization</H1>
+<P>One of our initial goals with ProteinShop was to create initial
+structures for subsequent global internal energy minimization.
+Therefore, it was desirable to support on-the-fly calculation of a
+protein structure's internal energy using the same energy function as
+inside the optimization algorithm. This would allow judging the
+overall quality of manipulated protein structures during creation, to
+cull undesirable structures as early in the process as possible. To
+make ProteinShop useful in a more general context, it was later
+decided to replace the fixed energy computation module with a plug-in
+system that would allow coupling ProteinShop with any external energy
+computation code.&nbsp; In an even more general sense, it is even
+possible to couple ProteinShop with <EM>any</EM> computation module
+that takes the set of 3D cartesian coordinates of all atoms inside a
+protein into account and delivers a real number quantifying the
+&quot;desirability&quot; of a structure. 
+</P>
+<H2>Energy computation plug-in.</H2>
+<P>Proteinshop includes the Amber plug-in to compute the AMBER energy
+(<A HREF="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Link&amp;db=PubMed&amp;dbFrom=PubMed&amp;from_uid=14531054">AMBER</A>)&nbsp;
+of a protein and to perform <A HREF="#LOCAL_MIN">local minimization</A>
+of this energy.&nbsp;&nbsp; The energy computation is based on the
+AmberEngine library.&nbsp; This library was developed with
+ProteinShop in mind, but it is not specific to ProteinShop.&nbsp;&nbsp;
+To compute the AMBER energy of a protein, the AmberEngine initializes
+a set of internal vectors based on the PDB file of the protein (for
+this purpose, the PDB file must be in a <A HREF="#PDB_REQUIREMENTS">specific
+format.</A>)&nbsp; After initialization, all energy computations
+require only the vector of atoms coordinates.&nbsp; In addition to
+the total AMBER energy value,&nbsp; AmberEngine&nbsp; makes available
+to ProteinShop the <A HREF="#PER_ATOM">energy per-atom</A> for
+visualization, as well as the partial <A HREF="#ENERGY_COMPONENTS">energy
+components</A> that make up the AMBER model.&nbsp; The user can then
+select which energy to visualize and can identify high-energy atoms
+inside the protein.&nbsp; 
+</P>
+<H3><A NAME="PDB_REQUIREMENTS"></A>PDB File Format requirements for
+Energy Computations.</H3>
+<P>The current energy computation plug-in requires that the PDB file
+for the protein satisfies the following two format requirements:</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in">The ordering of the atoms in each
+	amino acid should be the same as the ordering used in the amino
+	files in the Standards directory. 
+	</P>
+	<LI><P STYLE="margin-bottom: 0in">The PDB file should include all
+	the hydrogen atoms. 
+	</P>
+	<LI><P>A residue cap (ACE/NME residue) should be added at each
+	end of the amino acid sequence. ProteinShop will check the PDB file
+	and add these residues automatically if they are missing.</P>
+</UL>
+<P>Note that ProteinShop will read any PDB file, regardless of the
+ordering and insertion of the hydrogen atoms. These format
+requirements are only necessary for the preprocessing that calculates
+the AMBER energy.</P>
+<H3><A NAME="PER_ATOM"></A>Atom-Based Energy Visualization</H3>
+<P STYLE="margin-bottom: 0in">ProteinShop energy visualization
+interface allows visualization of the computed energy-values in a
+per-atom basis. The basic idea is that the energy computation module
+can compute a partial (energy) value for each atom inside a protein.
+These per-atom values can then be visualized, for instance, by
+mapping colors to atoms' van-der-Waals spheres, see Figure&nbsp;1.
+This kind of view can be produced by selecting the <I>Draw atoms</I>
+toggle in the <I>Drawing Toggles Dialog</I> and the <I>Visualize
+energy</I> toggle in the 
+<A HREF="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</A>.</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=16>
+	<TR>
+		<TD>
+			<P ALIGN=CENTER><IMG SRC="EnergyVisualizationAtomMapping.png" NAME="Graphic1" ALIGN=BOTTOM WIDTH=450 HEIGHT=335 BORDER=0></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><B>Figure 1:</B> Visualization of per-atom partial energy
+			values by color-coding atoms' van-der-Waals spheres.</P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR>Even though most existing computation codes do not compute
+per-atom values, many can easily be augmented to do so. For example,
+a code that calculates internal energy based on interactions between
+n-tuples of atoms could &quot;localize&quot; its computed internal
+energy by splitting the energy contributions computed for each
+n-tuple between the n&nbsp;atoms involved. For example, a code that
+considers bond angles could split the calculated partial energy
+values evenly among the three atoms forming the bond angle.&nbsp;
+This is the approach currently used by the AmberEngine plug-in to
+compute per-atom energies.</P>
+<P>ProteinShop also supports energy visualization based on volume
+textures superimposed over the geometric protein model. The use of
+this feature is described in detail by the <A HREF="evpug/index.html">Energy
+Visualization Pipeline User's Guide</A>. 
+</P>
+<HR>
+<P><BR><BR>
+</P>
+<H3><A NAME="ENERGY_COMPONENTS"></A>Partial Energy Components</H3>
+<P>To provide even more insight, the AmberEngine module keeps track
+of separate energy components that make up AMBER, namely the energy
+terms based on bond distances, bond angles, dihedral angles, and
+non-bonded interactions.&nbsp;&nbsp; ProteinShop allows the user to
+toggle energy components separately for visualization.&nbsp; This
+enables a user to better find and understand energy &quot;hot spots&quot;
+in a protein, for example by looking for only undesirable dihedral
+angles, or only for bad non-bonded interferences.</P>
+<H3><A NAME="LOCAL_MIN"></A>Local Energy Minimization</H3>
+<P>In addition to energy computations, the Amber plug-in provides an
+optimization routine to start a local minimization of the protein's
+energy.&nbsp; See the <A HREF="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</A>. This optimization is performed using the
+Limited Memory BFGS algorithm (<A HREF="http://portal.acm.org/citation.cfm?id=83726&amp;dl=ACM&amp;coll=portal">LBFGS</A>)&nbsp;
+as implemented in the <A HREF="http://csmr.ca.sandia.gov/projects/opt++/">OPT++
+toolkit</A>.&nbsp;&nbsp; In ProteinShop, this feature allows
+real-time visualization of the protein energy minimization process
+that drives the protein folding process.&nbsp;&nbsp; 
+</P>
+</BODY>
+</HTML>

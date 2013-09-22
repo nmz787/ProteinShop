@@ -1,0 +1,25 @@
+HEADER                                                                  ARGS   0
+ATOM      1 N    ARG     1       1.311   0.000  -0.570  0.00  0.00      ARGS   1
+ATOM      2 HN   ARG     1       1.568  -0.566  -1.361  0.00  0.00      ARGS   2
+ATOM      3 CA   ARG     1       0.000   0.000   0.000  0.00  0.00      ARGS   3
+ATOM      4 HA   ARG     1      -0.539  -0.867  -0.353  0.00  0.00      ARGS   4
+ATOM      5 C    ARG     1      -0.702   1.231  -0.460  0.00  0.00      ARGS   5
+ATOM      6 O    ARG     1      -1.308   1.949   0.333  0.00  0.00      ARGS   6
+ATOM      7 CB   ARG     1       0.000   0.000   1.538  0.00  0.00      ARGS   7
+ATOM      8 HB1  ARG     1       0.536  -0.907   1.890  0.00  0.00      ARGS   9
+ATOM      9 HB2  ARG     1       0.536   0.907   1.890  0.00  0.00      ARGS   8
+ATOM     10 CG   ARG     1      -1.403   0.000   2.148  0.00  0.00      ARGS  10
+ATOM     11 HG1  ARG     1      -1.939  -0.907   1.797  0.00  0.00      ARGS  11
+ATOM     12 HG2  ARG     1      -1.939   0.907   1.797  0.00  0.00      ARGS  12
+ATOM     13 CD   ARG     1      -1.403   0.000   3.678  0.00  0.00      ARGS  13
+ATOM     14 HD1  ARG     1      -0.886   0.907   4.057  0.00  0.00      ARGS  14
+ATOM     16 HD2  ARG     1      -0.886  -0.907   4.057  0.00  0.00      ARGS  15
+ATOM     16 NE   ARG     1      -2.824   0.000   4.126  0.00  0.00      ARGS  16
+ATOM     17 HE   ARG     1      -3.561   0.000   3.451  0.00  0.00      ARGS  17
+ATOM     18 CZ   ARG     1      -3.120   0.000   5.459  0.00  0.00      ARGS  18
+ATOM     19 NH1  ARG     1      -4.421   0.000   5.869  0.00  0.00      ARGS  19
+ATOM     20 HH11 ARG     1      -5.159   0.000   5.194  0.00  0.00      ARGS  20
+ATOM     21 HH12 ARG     1      -4.638  -0.000   6.846  0.00  0.00      ARGS  21
+ATOM     22 NH2  ARG     1      -2.114  -0.067   6.379  0.00  0.00      ARGS  22
+ATOM     23 HH21 ARG     1      -1.162  -0.116   6.077  0.00  0.00      ARGS  23
+ATOM     24 HH22 ARG     1      -2.329  -0.067   7.356  0.00  0.00      ARGS  24

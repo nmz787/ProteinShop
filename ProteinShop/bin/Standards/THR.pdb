@@ -1,0 +1,14 @@
+ATOM      1  N   THR     1      -1.458   0.000   0.000  1.00  0.00      AUTO        
+ATOM      2  HN  THR     1      -1.871  -0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  THR     1       0.000   0.000   0.000  1.00  0.00      AUTO        
+ATOM      4  HA  THR     1       0.336   0.917  -0.507  1.00  0.00      AUTO        
+ATOM      5  C   THR     1       0.551  -1.198  -0.766  1.00  0.00      AUTO        
+ATOM      6  O   THR     1       0.024  -2.306  -0.667  1.00  0.00      AUTO        
+ATOM      7  CB  THR     1       0.564  -0.015   1.433  1.00  0.00      AUTO        
+ATOM      8  HB  THR     1       1.662   0.026   1.377  1.00  0.00      AUTO        
+ATOM      9  OG1 THR     1       0.150  -1.214   2.100  1.00  0.00      AUTO        
+ATOM     10  HG1 THR     1       0.493  -2.010   1.600  1.00  0.00      AUTO        
+ATOM     11  CG2 THR     1       0.057   1.185   2.218  1.00  0.00      AUTO        
+ATOM     12 HG21 THR     1       0.376   2.111   1.718  1.00  0.00      AUTO        
+ATOM     13 HG22 THR     1       0.469   1.158   3.238  1.00  0.00      AUTO        
+ATOM     14 HG23 THR     1      -1.041   1.155   2.267  1.00  0.00      AUTO        

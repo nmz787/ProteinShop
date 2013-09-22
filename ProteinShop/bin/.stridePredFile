@@ -1,0 +1,130 @@
+REM  --------------------------------------------------------------------  1UBQ
+REM                                                                        1UBQ
+REM  STRIDE: Knowledge-based secondary structure assignment                1UBQ
+REM  Please cite: D.Frishman & P.Argos, Proteins 23, 566-579, 1995         1UBQ
+REM                                                                        1UBQ
+REM  Residue accessible surface area calculation                           1UBQ
+REM  Please cite: F.Eisenhaber & P.Argos, J.Comp.Chem. 14, 1272-1280, 1993 1UBQ
+REM               F.Eisenhaber et al., J.Comp.Chem., 1994, submitted       1UBQ
+REM                                                                        1UBQ
+REM  ------------------------ General information -----------------------  1UBQ
+REM                                                                        1UBQ
+HDR  CHROMOSOMAL PROTEIN                     02-JAN-87   1UBQ              1UBQ
+CMP  MOL_ID: 1;                                                            1UBQ
+CMP   MOLECULE: UBIQUITIN;                                                 1UBQ
+CMP   CHAIN: A;                                                            1UBQ
+CMP   ENGINEERED: YES                                                      1UBQ
+SRC  MOL_ID: 1;                                                            1UBQ
+SRC   ORGANISM_SCIENTIFIC: HOMO SAPIENS;                                   1UBQ
+SRC   ORGANISM_COMMON: HUMAN;                                              1UBQ
+SRC   ORGANISM_TAXID: 9606                                                 1UBQ
+AUT  S.VIJAY-KUMAR,C.E.BUGG,W.J.COOK                                       1UBQ
+REM                                                                        1UBQ
+REM  -------------------- Secondary structure summary -------------------  1UBQ
+REM                                                                        1UBQ
+CHN  /home/nathan/Downloads/1UBQ.pdb A                                     1UBQ
+REM                                                                        1UBQ
+REM                .         .         .         .         .               1UBQ
+SEQ  1    MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQL   50          1UBQ
+STR        EEEEETTTT EEEEE TTTTBHHHHHHHHHHHH   GGGEEEEETTEE                1UBQ
+REM                                                                        1UBQ
+REM                .         .                                             1UBQ
+SEQ  51   EDGRTLSDYNIQKESTLHLVLRLRGG                           76          1UBQ
+STR       TTTTBGGGG  TTTTEEEEEE                                            1UBQ
+REM                                                                        1UBQ
+REM                                                                        1UBQ
+REM                                                                        1UBQ
+LOC  AlphaHelix   ILE    23 A      GLU     34 A                            1UBQ
+LOC  310Helix     PRO    38 A      GLN     40 A                            1UBQ
+LOC  310Helix     LEU    56 A      TYR     59 A                            1UBQ
+LOC  Strand       GLN     2 A      LYS      6 A                            1UBQ
+LOC  Strand       THR    12 A      GLU     16 A                            1UBQ
+LOC  Strand       GLN    41 A      PHE     45 A                            1UBQ
+LOC  Strand       LYS    48 A      GLN     49 A                            1UBQ
+LOC  Strand       THR    66 A      LEU     71 A                            1UBQ
+LOC  TurnI        THR     7 A      GLY     10 A                            1UBQ
+LOC  TurnI        GLU    18 A      ASP     21 A                            1UBQ
+LOC  TurnIV       ILE    44 A      GLY     47 A                            1UBQ
+LOC  TurnI'       PHE    45 A      LYS     48 A                            1UBQ
+LOC  TurnI        GLU    51 A      ARG     54 A                            1UBQ
+LOC  TurnII       GLN    62 A      SER     65 A                            1UBQ
+REM                                                                        1UBQ
+REM  --------------- Detailed secondary structure assignment-------------  1UBQ
+REM                                                                        1UBQ
+REM  |---Residue---|    |--Structure--|   |-Phi-|   |-Psi-|  |-Area-|      1UBQ
+ASG  MET A    1    1    C          Coil    360.00    149.63      52.8      1UBQ
+ASG  GLN A    2    2    E        Strand    -91.02    138.26      76.1      1UBQ
+ASG  ILE A    3    3    E        Strand   -131.10    163.05       0.0      1UBQ
+ASG  PHE A    4    4    E        Strand   -115.99    140.23      52.3      1UBQ
+ASG  VAL A    5    5    E        Strand   -118.03    114.22       0.2      1UBQ
+ASG  LYS A    6    6    E        Strand    -95.23    127.54     104.3      1UBQ
+ASG  THR A    7    7    T          Turn    -99.58    170.75      21.1      1UBQ
+ASG  LEU A    8    8    T          Turn    -73.43     -6.94     136.4      1UBQ
+ASG  THR A    9    9    T          Turn   -101.40     14.93     125.8      1UBQ
+ASG  GLY A   10   10    T          Turn     77.44     16.54      66.0      1UBQ
+ASG  LYS A   11   11    C          Coil    -96.27    138.08      95.1      1UBQ
+ASG  THR A   12   12    E        Strand   -119.94    131.76      64.9      1UBQ
+ASG  ILE A   13   13    E        Strand   -109.47    141.99       5.3      1UBQ
+ASG  THR A   14   14    E        Strand   -101.44    139.74      59.9      1UBQ
+ASG  LEU A   15   15    E        Strand   -126.41    154.00       7.5      1UBQ
+ASG  GLU A   16   16    E        Strand   -111.80    121.13     153.8      1UBQ
+ASG  VAL A   17   17    C          Coil   -139.02    170.72       4.4      1UBQ
+ASG  GLU A   18   18    T          Turn   -120.04    144.51     110.2      1UBQ
+ASG  PRO A   19   19    T          Turn    -54.94    -24.53      45.9      1UBQ
+ASG  SER A   20   20    T          Turn    -79.84     -8.14      85.3      1UBQ
+ASG  ASP A   21   21    T          Turn    -71.01    148.44      38.1      1UBQ
+ASG  THR A   22   22    B        Bridge    -83.70    160.43      47.2      1UBQ
+ASG  ILE A   23   23    H    AlphaHelix    -61.33    -37.21       0.2      1UBQ
+ASG  GLU A   24   24    H    AlphaHelix    -57.57    -40.49     129.9      1UBQ
+ASG  ASN A   25   25    H    AlphaHelix    -65.49    -44.44      55.1      1UBQ
+ASG  VAL A   26   26    H    AlphaHelix    -58.42    -46.41       0.0      1UBQ
+ASG  LYS A   27   27    H    AlphaHelix    -60.81    -37.96      13.4      1UBQ
+ASG  ALA A   28   28    H    AlphaHelix    -66.12    -38.12      43.7      1UBQ
+ASG  LYS A   29   29    H    AlphaHelix    -64.22    -37.26      68.5      1UBQ
+ASG  ILE A   30   30    H    AlphaHelix    -70.00    -39.56       0.6      1UBQ
+ASG  GLN A   31   31    H    AlphaHelix    -62.13    -48.63      82.7      1UBQ
+ASG  ASP A   32   32    H    AlphaHelix    -53.41    -41.77     147.0      1UBQ
+ASG  LYS A   33   33    H    AlphaHelix    -93.58    -24.40     111.1      1UBQ
+ASG  GLU A   34   34    H    AlphaHelix   -123.58     -6.35      74.6      1UBQ
+ASG  GLY A   35   35    C          Coil     81.22      5.32      49.9      1UBQ
+ASG  ILE A   36   36    C          Coil    -79.73    124.87      30.3      1UBQ
+ASG  PRO A   37   37    C          Coil    -57.00    136.97      44.7      1UBQ
+ASG  PRO A   38   38    G      310Helix    -57.18    -32.17      45.3      1UBQ
+ASG  ASP A   39   39    G      310Helix    -68.24    -15.57      85.3      1UBQ
+ASG  GLN A   40   40    G      310Helix    -95.80    -10.47      48.5      1UBQ
+ASG  GLN A   41   41    E        Strand    -84.83    129.70       0.0      1UBQ
+ASG  ARG A   42   42    E        Strand   -121.24    115.96      95.9      1UBQ
+ASG  LEU A   43   43    E        Strand   -103.56    130.24       0.2      1UBQ
+ASG  ILE A   44   44    E        Strand   -122.07    131.81      26.1      1UBQ
+ASG  PHE A   45   45    E        Strand   -144.27    129.64      37.7      1UBQ
+ASG  ALA A   46   46    T          Turn     48.17     45.99      70.8      1UBQ
+ASG  GLY A   47   47    T          Turn     61.71     21.62      75.3      1UBQ
+ASG  LYS A   48   48    E        Strand   -115.07    142.71     100.7      1UBQ
+ASG  GLN A   49   49    E        Strand    -85.77    130.28     104.8      1UBQ
+ASG  LEU A   50   50    C          Coil    -79.56    138.33       3.5      1UBQ
+ASG  GLU A   51   51    T          Turn   -101.83    139.96     129.6      1UBQ
+ASG  ASP A   52   52    T          Turn    -48.19    -42.21      65.3      1UBQ
+ASG  GLY A   53   53    T          Turn    -82.93     -8.89      45.4      1UBQ
+ASG  ARG A   54   54    T          Turn    -85.45    165.46     123.9      1UBQ
+ASG  THR A   55   55    B        Bridge   -104.51    164.59      29.3      1UBQ
+ASG  LEU A   56   56    G      310Helix    -61.22    -36.21       0.0      1UBQ
+ASG  SER A   57   57    G      310Helix    -63.89    -29.62      66.3      1UBQ
+ASG  ASP A   58   58    G      310Helix    -55.55    -39.30      91.3      1UBQ
+ASG  TYR A   59   59    G      310Helix    -91.02      4.65      41.4      1UBQ
+ASG  ASN A   60   60    C          Coil     57.94     45.36     121.3      1UBQ
+ASG  ILE A   61   61    C          Coil    -88.67    116.44       4.6      1UBQ
+ASG  GLN A   62   62    T          Turn   -103.44    169.54     123.4      1UBQ
+ASG  LYS A   63   63    T          Turn    -54.79    143.06     131.0      1UBQ
+ASG  GLU A   64   64    T          Turn     66.90     19.15     106.3      1UBQ
+ASG  SER A   65   65    T          Turn    -71.15    159.52      21.4      1UBQ
+ASG  THR A   66   66    E        Strand   -119.15    126.67      56.9      1UBQ
+ASG  LEU A   67   67    E        Strand   -103.14    154.61       0.0      1UBQ
+ASG  HIS A   68   68    E        Strand   -105.58    135.67      82.2      1UBQ
+ASG  LEU A   69   69    E        Strand   -106.97    115.78       4.3      1UBQ
+ASG  VAL A   70   70    E        Strand   -108.12    139.93      35.3      1UBQ
+ASG  LEU A   71   71    E        Strand    -96.02    138.80      77.8      1UBQ
+ASG  ARG A   72   72    C          Coil   -117.62     98.81     114.9      1UBQ
+ASG  LEU A   73   73    C          Coil    -83.72    150.39     114.0      1UBQ
+ASG  ARG A   74   74    C          Coil    -97.66     93.88     209.7      1UBQ
+ASG  GLY A   75   75    C          Coil    120.41    125.56      73.9      1UBQ
+ASG  GLY A   76   76    C          Coil    174.16    360.00     153.5      1UBQ

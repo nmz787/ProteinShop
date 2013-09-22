@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>ProteinShop User's Manual - Energy Computation and
+Visualization</title>
+</head>
+<body>
+<h1>Using the Energy Computation Plug-In<br>
+</h1>
+In ProteinShop the user control energy computations via the <a
+ href="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</a>.&nbsp; The dialog becomes active when the user
+loads a PDB file that satisfies the <a
+ href="EnergyVisualization.html##PDB_REQUIREMENTS">format
+requirements</a> of the Amber plug-in.&nbsp;&nbsp; <br>
+<br>
+ProteinShop will automatically update the current protein's energy after each
+manipulation operation.&nbsp; 
+<p>As soon as energy computation is complete, ProteinShop will display
+the computation result in the <a
+ href="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</a>, and it will update the current rendering if
+energy visualization has been enabled.</p>
+<p>To visualize the per-atom partial energies, the <a
+ href="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</a> can be used to color-code atoms' van-der-Waals
+spheres according to the selected settings. The "Energy Mapping Range"
+text fields define the minimum and maximum per-atom energy values that
+will be mapped to ProteinShop's green-yellow-red color ramp, and the
+toggle buttons in the "Visualized Energy Components" group allow
+selecting any combination of energy components to be visualized. Any
+changes in the toggles, or in the mapping range, result in immediate
+visualization of the results.<span style="font-weight: bold;">&nbsp;&nbsp;
+<br>
+</span></p>
+<p><span style="font-weight: bold;"></span>The minimization button in
+the <a href="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</a> allows the user to
+initiate, pause, and continue a local minimization computation.&nbsp;
+The function
+minimized in each case consists of the energy components selected by
+the user via the toggle buttons in the&nbsp; <a
+ href="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+Visualization Dialog</a> window.<br>
+</p>
+<span style="font-weight: bold;"><span style="font-weight: bold;"><br>
+<br>
+</span></span>
+<hr style="width: 100%; height: 2px;">
+<h2><br>
+</h2>
+<h2>Defining an external energy computation module</h2>
+ProteinShop includes an Amber plug-in as the standard energy module,
+but
+users may prefer to use their own energy modules. <br>
+In order to interface with ProteinShop, an "energy computation module"
+must have the following properties:
+<ul>
+  <li>The module must be able to fully initialize its computation from
+reading a PDB file. In other words, it must be able to generate all
+internal data structures it needs to perform its computation by parsing
+a protein structure.</li>
+  <li>The module must be able to update its internal data structures to
+perform its computation on different conformations of the same protein
+from only a vector of 3D cartesian atom coordinates defining the
+current conformation.</li>
+  <li>The module must return a single value.</li>
+</ul>
+The reasons for these requirements are mostly technical. When a new
+protein is created, either from reading a prediction file or a PDB
+file, ProteinShop creates a temporary PDB file containing the new
+protein structure, and passes the name of this file to the computation
+module for initialization. When a user later requests calculating the
+(energy) value of the current protein, ProteinShop only sends an array
+of current atom positions to the computation module, and expects a
+single return value.
+<h2>Loading a different energy module</h2>
+ProteinShop provides a plug-in system that allows dynamically loading
+energy computation modules at program start-up. To use an existing
+computation module, it first has to be wrapped into an interface layer
+that allows dynamic linking and understands ProteinShop's energy API.
+Once a computation
+module is available in the correct form, it can be loaded by listing
+its name in ProteinShop's configuration file ("ProteinShop.cfg").
+For example, to load a computation module compiled
+into a dynamic library libAmber.so, ProteinShop.cfg would have to contain
+the following lines:
+<pre>Section EnergyCalculator<br>	addCaps true        <br>	enginePath lib<br>        dsoName lib/libAmber.so<br>EndSection<br></pre>
+These lines must exist at the root level of the file, i.e., not inside
+any other Section/Endsection brackets. If a dsoName line is present
+inside the EnergyCalculator section, ProteinShop will try loading a
+dynamic library of the given name at startup. If loading of this
+library fails, ProteinShop will display an error message and continue
+with energy calculation functionality disabled. To get rid of such an
+error message, one has to remove or comment out the lines.<span
+ style="font-weight: bold;"><span style="font-weight: bold;"><br>
+</span></span>
+<br>
+</body>
+</html>

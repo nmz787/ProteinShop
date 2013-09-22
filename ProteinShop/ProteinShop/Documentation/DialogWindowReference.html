@@ -1,0 +1,758 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>ProteinShop User's Manual - Dialog Window Reference</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20041207;11282300">
+	<META NAME="CHANGED" CONTENT="20050421;23265000">
+	<STYLE>
+	<!--
+		@page { size: 8.5in 11in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1>Dialog Window Reference</H1>
+<H2><A NAME="ResidueDialog"></A>The Residue Dialog</H2>
+<P STYLE="margin-bottom: 0in">The Residue Dialog, see Figure&nbsp;1,
+displays information about the currently selected amino acid residue,
+and allows changing some residue parameters. 
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=14*>
+	<COL WIDTH=111*>
+	<COL WIDTH=3*>
+	<COL WIDTH=114*>
+	<COL WIDTH=14*>
+	<TR>
+		<TD ROWSPAN=3 WIDTH=5% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=43%>
+			<P ALIGN=CENTER><B>(a)</B>&nbsp;<IMG SRC="ResidueDialogDisabled.png" NAME="Graphic1" ALIGN=TOP WIDTH=314 HEIGHT=305 BORDER=0></P>
+		</TD>
+		<TD COLSPAN=2 WIDTH=46%>
+			<P ALIGN=CENTER><B>(b)</B>&nbsp;<IMG SRC="ResidueDialogEnabled.png" NAME="Graphic2" ALIGN=TOP WIDTH=314 HEIGHT=305 BORDER=0></P>
+		</TD>
+		<TD ROWSPAN=3 WIDTH=5% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 WIDTH=45%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(c)</B>&nbsp;<IMG SRC="ResidueDialogEnabledCoilRegion.png" NAME="Graphic3" ALIGN=TOP WIDTH=314 HEIGHT=305 BORDER=0></P>
+		</TD>
+		<TD WIDTH=45%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(d)</B>&nbsp;<IMG SRC="ResidueDialogEnabledLabelToggles.png" NAME="Graphic10" ALIGN=TOP WIDTH=314 HEIGHT=305 BORDER=0></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=3 WIDTH=89%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(e)</B>&nbsp;<IMG SRC="ResidueDialogEnabledHydroColors.png" NAME="Graphic11" ALIGN=TOP WIDTH=314 HEIGHT=305 BORDER=0></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=5 WIDTH=100%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=5 WIDTH=100%>
+			<P><B>Figure 1:</B> The Residue Dialog. (a)&nbsp;No residue is
+			selected. (b)&nbsp;Some residue inside either an alpha-helix or a
+			beta-strand is selected. (c)&nbsp;Some residue inside a coil
+			region is selected. <FONT COLOR="#000000">(d) Labels are enabled
+			for the selected residue. (e) Residue colorings are enabled.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT><B>Residue index slider</B> 
+	</DT><DD>
+	This slider shows the index of the currently selected residue (or -1
+	if no residue is selected), and can be used to select a residue by
+	dragging the slider with the mouse. Residue index is actually a
+	misnomer, since the displayed number is not the residue's index in
+	the residue chain, but the identification number that would be
+	written out in a PDB file. Since residue numbers in PDB files are
+	usually sequential and zero- or one-based, this is not too much of a
+	distinction. 
+	</DD><DT>
+	<B>Residue type</B> 
+	</DT><DD>
+	This (unselectable) drop box displays the type of the currently
+	selected residue, or &quot;Unknown&quot; if the residue is not one
+	of the standard amino acids. 
+	</DD><DT>
+	<B>PDB file name</B> 
+	</DT><DD>
+	This text field shows the three-letter abbreviation that would be
+	written to a PDB file to identify the current residue's type. 
+	</DD><DT>
+	<B>Structure type</B> 
+	</DT><DD>
+	This drop box shows the secondary structure type (alpha-helix,
+	beta-strand, coil region) currently associated with the selected
+	residue. Structure types can be assigned individually to each
+	residue by selecting the desired type from the drop box. Reassigning
+	a residue's type will implicitly change the current protein's
+	secondary structure chain, and will select the new secondary
+	structure containing the selected residue as the current residue.
+	Changing a residue's structure type will <EM>not</EM> automatically
+	set the residue's dihedral angles to the standard values for the new
+	residue type. This can be achieved by selecting the &quot;Reset to
+	Standard&quot; button in the Structure Dialog. 
+	</DD><DT>
+	<B>Dihedral Angles</B> 
+	</DT><DD>
+	These two text fields show the current dihedral angle values for the
+	selected residue in degrees. 
+	</DD><DT>
+	<B>Randomize Angles</B> 
+	</DT><DD>
+	If the currently selected residue's structure type is coil region,
+	this button will set the selected residue's dihedral angles to
+	random values, uniformly distributed over the half-open interval [0,
+	2*pi). 
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Residue Label Toggle</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">The residue name, chain or model id, and
+	residue id of the selected residue can be displayed or hidden on the
+	screen. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Atom Label Toggle</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">All the name of atoms in the selected residue
+	can be displayed or hidden on the screen. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Dihedral Angles Label Toggle</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">The current dihedral angle values for the
+	selected residue in degrees can be displayed or hidden on the
+	screen. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Residue Color Button</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">Three types of residue color ( hydrophobic,
+	hydrophilic and disulfide) can be assigned to the current protein's
+	residues based on the residue type. The default color for
+	hydrophobic type is white. The default color for hydrophilic type is
+	blue. The default color for disulfide type is yellow. All three
+	types of residue color can be changed to different colors by editing
+	the ProteinRenderer section in ProteinShop.cfg file. </FONT>
+	</DD><DD STYLE="margin-bottom: 0.2in">
+	<BR><BR>
+	</DD></DL>
+<H2>
+<A NAME="StructureDialog"></A>The Structure Dialog</H2>
+<P STYLE="margin-bottom: 0in">The Structure Dialog, see Figure&nbsp;2,
+displays information about the currently selected secondary
+structure, and allows changing the global shape of the selected
+beta-strand and resetting all dihedral angles inside the selected
+structure to their standard values. 
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=14*>
+	<COL WIDTH=111*>
+	<COL WIDTH=117*>
+	<COL WIDTH=14*>
+	<TR>
+		<TD ROWSPAN=2 WIDTH=5% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=44%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(a)</B>&nbsp;<IMG SRC="StructureDialogDisabled.png" NAME="Graphic4" ALIGN=TOP WIDTH=314 HEIGHT=365 BORDER=0></P>
+		</TD>
+		<TD WIDTH=46%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(b)</B>&nbsp;<IMG SRC="StructureDialogEnabled.png" NAME="Graphic5" ALIGN=TOP WIDTH=314 HEIGHT=365 BORDER=0></P>
+		</TD>
+		<TD ROWSPAN=2 WIDTH=5% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=2 WIDTH=89%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(c)</B>&nbsp;<IMG SRC="StructureDialogEnabledBetaStrand.png" NAME="Graphic6" ALIGN=TOP WIDTH=314 HEIGHT=365 BORDER=0></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><B>Figure 2:</B> The Structure Dialog. (a)&nbsp;No secondary
+			structure is selected. (b)&nbsp;Either an alpha-helix or a coil
+			region is selected. (c)&nbsp;A beta-strand is selected.</P>
+		</TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT><B>Structure index</B> 
+	</DT><DD>
+	This slider shows the index of the currently selected secondary
+	structure (or -1 if no structure is selected), and can be used to
+	select a secondary structure by dragging the slider with the mouse. 
+	</DD><DT>
+	<B>Structure type</B> 
+	</DT><DD>
+	This (unselectable) drop box displays the selected structure's type
+	(alpha-helix, beta-strand, coil region). 
+	</DD><DT>
+	<B>Residue Index Range</B> 
+	</DT><DD>
+	These two text fields show the residue indices of the first and last
+	residue contained in the selected secondary structure. The residue
+	indices displayed here are the same ones as displayed by the
+	&quot;Residue index&quot; slider in the Residue Dialog. 
+	</DD><DT>
+	<B>Beta Strand Shape Adjustment</B> 
+	</DT><DD>
+	If the selected structure is a beta-strand, these four rollers can
+	be used to globally modify the selected beta-strand's shape. The
+	four rollers correspond to the four basis vectors of the 2D shape
+	parameter space. Counting residues inside a beta-strand beginning
+	with zero, residue dihedral angles phi and&nbsp;psi are affected as
+	follows: 
+	</DD><DL>
+		<DT>
+		<B>B-strand curl</B> 
+		</DT><DD>
+		Dragging this roller to the right decreases&nbsp;phi and
+		increases&nbsp;psi for even-numbered residues and increases&nbsp;phi
+		and decreases&nbsp;psi for odd-numbered residues. 
+		</DD><DT>
+		<B>B-strand twist</B> 
+		</DT><DD>
+		Dragging this roller to the right increases both phi and&nbsp;psi
+		for even- and odd-numbered residues. 
+		</DD><DT>
+		<B>B-strand pleat</B> 
+		</DT><DD>
+		Dragging this roller to the right decreases&nbsp;phi and
+		increases&nbsp;psi for even- and odd-numbered residues. 
+		</DD><DT>
+		<B>B-strand braid</B> 
+		</DT><DD>
+		Dragging this roller to the right increases both phi and&nbsp;psi
+		for even-numbered residues and decreases both phi and&nbsp;psi for
+		odd-numbered residues. 
+		</DD></DL>
+	<DT>
+	<B>Flatten B-strand</B> 
+	</DT><DD>
+	If the selected structure is a beta-strand, this button will set its
+	dihedral angles to values such that all its hydrogen bond sites are
+	coplanar. Aligning two flattened beta-strands allows forming
+	arbitrary numbers of hydrogen bonds between them. 
+	</DD><DT>
+	<B>Reset to Standard</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	This button will reset the dihedral angles of all residues inside
+	the selected structure to the standard values for the selected
+	structure's type. Reassigning a residue's structure type using the
+	Residue Dialog will not automatically set that residue's dihedral
+	angles to the new standard values; this can be done on a
+	per-structure basis with this button. 
+	</DD></DL>
+<H2>
+<A NAME="DrawingTogglesDialog"></A>The Drawing Toggles Dialog</H2>
+<P STYLE="margin-bottom: 0in">The Drawing Toggles Dialog, see
+Figure&nbsp;3, is used to select rendering modes as desribed in
+<A HREF="RenderingFeatures.html">Rendering Features</A>. The dialog
+shows the global rendering mode settings, and per-structure settings
+for the currently selected secondary structure. 
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=35*>
+	<COL WIDTH=90*>
+	<COL WIDTH=95*>
+	<COL WIDTH=35*>
+	<TR>
+		<TD WIDTH=14% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=35%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(a)</B>&nbsp;<IMG SRC="DrawingTogglesDialogDisabled.png" NAME="Graphic7" ALIGN=TOP WIDTH=244 HEIGHT=630 BORDER=0></P>
+		</TD>
+		<TD WIDTH=37%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><B>(b)</B>&nbsp;<IMG SRC="DrawingTogglesDialogEnabled.png" NAME="Graphic8" ALIGN=TOP WIDTH=244 HEIGHT=630 BORDER=0></P>
+		</TD>
+		<TD WIDTH=14% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><B>Figure 3:</B> The Drawing Toggles Dialog. (a)&nbsp;No
+			secondary structure is selected. (b)&nbsp;Some secondary structure
+			is selected.</P>
+		</TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT><B>Global Parameters</B> 
+	</DT><DD>
+	The toggle buttons in this group are used to toggle global rendering
+	mode settings. 
+	</DD><DT>
+	<B>Structure Parameters</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	The toggle buttons in this group are used to toggle rendering mode
+	settings for the currently selected secondary structure. 
+	</DD></DL>
+<H2>
+<A NAME="SelectionDialog"></A><FONT COLOR="#000000">The Protein
+Selection Dialog</FONT></H2>
+<P STYLE="margin-bottom: 0in"><FONT COLOR="#800000"><FONT COLOR="#000000">The
+Protein Selection Dialog, see Figure&nbsp;4, is used to make
+selection and comparison between different proteins.</FONT> </FONT>
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=15*>
+	<COL WIDTH=110*>
+	<COL WIDTH=100*>
+	<COL WIDTH=30*>
+	<TR>
+		<TD WIDTH=6% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=43%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#800000"><B><FONT COLOR="#000000">(a)</FONT></B><BR>&nbsp;
+						<IMG SRC="ProteinSelection.png" NAME="Graphic12" ALIGN=TOP WIDTH=474 HEIGHT=270 BORDER=0></FONT></P>
+		</TD>
+		<TD WIDTH=39%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#800000"><FONT COLOR="#000000"><B>(b)</B>
+			</FONT><BR><IMG SRC="ProteinSelectionAlign.png" NAME="Graphic13" ALIGN=TOP WIDTH=474 HEIGHT=270 BORDER=0></FONT></P>
+		</TD>
+		<TD WIDTH=12% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><B>Figure 4:</B> The Protein Selection Dialog. (a)&nbsp;One
+			protein is selected. (b)&nbsp;Two proteins are selected and the
+			Align button is enabled.</P>
+		</TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT><FONT COLOR="#000000"><B>Protein</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">All loaded protein names are displayed. The
+	current (selected) protein name is highlighted. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Remove Button</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">The selected protein will be removed. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Center View Button</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">The selected protein will be moved to center
+	of screen. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Align Button</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">Two proteins can be aligned for comparison and
+	the RMSD value can be computed. The Align button is enabled when
+	the second protein is selected by holding down the <B>&lt;Ctrl&gt;</B>&nbsp;modifier
+	key and clicking the second protein's name. The color of the second
+	protein will be grayed out. Three type of alignment can be performed:
+	all atoms (check button A), backbone atoms only (check
+	button B) and C-Alpha atoms only (check button C). </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Position</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">Dragging each roller to move the selected
+	protein along the X, Y or Z axis. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Orientation</B> </FONT>
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	<FONT COLOR="#000000">Dragging each roller to rotate the selected
+	protein along the X-Y, Y-Z or X-Z axis. </FONT>
+	</DD></DL>
+<H2>
+<A NAME="EnergyVisualizationDialog"></A>The Energy Visualization
+Dialog</H2>
+<P STYLE="margin-bottom: 0in">The Energy Visualization Dialog, see
+Figure&nbsp;5, is only available if an energy computation plug-in has
+been loaded. It displays the total internal energy of the current
+protein, and allows selecting energy components and value mapping
+ranges for energy visualization. <FONT COLOR="#000000">From the
+Energy Visualization Dialog, you can open the Volume Rendering
+Dialog, which provides controls for the volumetric rendering of
+protein energy. The Energy Visualization Dialog looks like this:</FONT></P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=16>
+	<TR>
+		<TD>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#000000"><FONT COLOR="#000000"><IMG SRC="EnergyVisualizationDialog.png" NAME="Graphic9" ALT="eng vis" ALIGN=MIDDLE WIDTH=335 HEIGHT=452 BORDER=1></FONT></FONT></P>
+			<P ALIGN=CENTER><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<P><B>Figure 5:</B> The Energy Visualization Dialog. The currently
+			loaded energy computation library is AMBER with no solvation term.</P>
+		</TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT><FONT COLOR="#000000"><B>Internal energy</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This text output field displays the total
+	energy value that was returned by the last energy calculation on the
+	current protein. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Recalculate</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This button causes immediate recalculation of
+	the current protein's internal energy. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Run Local Optimization</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">If the energy plug-in provides local
+	optimization, this button will invoke it. Press again to stop the
+	minimization process. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Show Volume Rendering Dialog</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">Press this button to show the Volume Rendering
+	Dialog, which provides controls for rendering atom energies
+	superimposed on the molecular geometry. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Load Minimization Record</B></FONT></DT><DD STYLE="font-weight: medium">
+	<FONT COLOR="#000000">This button is disabled when a minimization
+	record is loaded. When enabled, clicking it will open a file dialog
+	in which a minimization record file can be specified. If a
+	compatible file is loaded, the Record Dialog will display.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Visualize energy</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#800000"><FONT COLOR="#000000">This control toggles
+	rendering of atom energy, using color-coding of atom spheres and
+	volume texture, if the latter has been generated.&nbsp; For the
+	color-coding of atom spheres, the van-der-Waals sphere of each atom
+	inside the current protein will be colored according to that atom's
+	partial internal energy value. To have visible effect, the current
+	rendering mode has to include van-der-Waals sphere rendering,</FONT>
+	<A HREF="RenderingFeatures.html">Section&nbsp;1.2.1</A>.</FONT> 
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Display energy</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This control toggles display of the energy
+	value on screen. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Sec</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This filed is used to change the interval of
+	time for the update of the energy value during a manipulation.</FONT>
+		</DD><DT>
+	<FONT COLOR="#000000"><B>Record minimization states to file</B></FONT></DT><DD>
+	<FONT COLOR="#000000">If the energy plug-in provides local
+	optimization, this toggle will save the atom positions, energy
+	states, and force field gradients to a binary file with each
+	iteration of the minimization process. The name of the record file
+	is defined in the <A HREF="ProteinShopCFG.html">configuration file</A>.
+	Any record previously stored in the record file will be overwritten
+	by the new record, so it is a good idea to rename record files that
+	you want to keep. Be advised that record files can quickly become
+	very large; about (48 + 8C) * N bytes per iteration, where C is the
+	number of energy component terms supported by the energy plug-in,
+	and N is the number of atoms in the molecule. The number of
+	iterations can easily reach into the tens of thousands. They often
+	do not compress well, either. Once generated, records can be
+	accessed through the Record Dialog.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Energy Mapping Range</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">These fields are used to define the transfer
+	function for atom sphere color-coding and volume rendering. For
+	volume rendering, this range clamps the atom energies before
+	accumulation into the grid. If <I>Max</I> is not more than <I>Min</I>,
+	it is defined as <I>Min</I> + 100. This clamp helps prevent outlier
+	values from eliding information about the rest of the atoms in the
+	molecule. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Visualized Energy Components</B> </FONT>
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	<FONT COLOR="#000000">This group contains toggles for each partial
+	energy component that is supported by the currently linked energy
+	computation library. The partial energy of an atom is computed as
+	the sum of those partial energy components whose toggle buttons are
+	selected. Each atom's energy is taken as the sum of the terms
+	selected in this box. Terms not selected do not make any
+	contribution to the volume texture. </FONT>
+	</DD></DL>
+<H2>
+<A NAME="EnergyVisualizationDialog1"></A>The Energy Rendering Dialog</H2>
+<P><FONT COLOR="#000000">This dialog, see Figure 6, is opened only
+from the Energy Visualization Dialog. To quickly see an energy
+texture, set the <I>Visualize Energy</I> toggle in the Energy
+Visualization Dialog and click the <I>Generate Texture</I> button in
+this dialog. Depending on the settings in the dialog, it might take
+anywhere from a fraction of a second to several minutes to generate
+the texture block. (The default settings are quick.) You may want to
+adjust the settings to make a better picture or make a picture
+faster. Also see the <A HREF="evpug/index.html"><I>Guide to the
+Energy Visualization Pipeline</I></A> for more information about the
+settings in this dialog as they pertain to energy rendering.</FONT></P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=256*>
+	<TR>
+		<TD WIDTH=100%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#000000"><FONT COLOR="#000000"><IMG SRC="EnergyRenderingDialog.png" NAME="Graphic14" ALT="eng rendering" ALIGN=MIDDLE WIDTH=335 HEIGHT=522 BORDER=1></FONT></FONT></P>
+			<P ALIGN=CENTER><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=100%>
+			<P><B>Figure 6:</B> The Energy Rendering Dialog.</P>
+		</TD>
+	</TR>
+</TABLE>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<DL>
+	<DT><FONT COLOR="#000000"><B>Generate Texture</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This button uses the AMBER energy for the
+	molecule to generate a volume texture depicting the force field
+	computed by the energy plug-in. Except for a minimization update or
+	when loading a record, this button is the <I>only</I> way to update
+	the energy texture after the molecule has changed. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Radius Multiplier</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This slider controls the multiplier of the
+	radial basis function in the pipeline.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Texels per Angstrom</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This slider controls the resolution of the
+	texture grid. Depending on the platform's capabilities and the
+	buffer limit settings in the configuration file, the setting here
+	may be replaced by a smaller value computed automatically. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>Classifier</B></FONT></DT><DD STYLE="font-weight: medium">
+	<FONT COLOR="#000000">This choice determines the classifier function
+	in the pipeline. This determines how many classifications are
+	available for color function assignment in the group box below.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Color function</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This choice assigns a color function to the
+	selected classification in the pipeline. The intensity functions are
+	usually best; the invisibility function can be used to hide parts of
+	the texture.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Next Class</B></FONT></DT><DD STYLE="font-weight: medium">
+	<FONT COLOR="#000000">Go to the next classification for color
+	function assignment.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Previous Class</B></FONT></DT><DD STYLE="font-weight: medium">
+	<FONT COLOR="#000000">Go to the previous classification for color
+	function assignment.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Input Channel</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">These toggles select the input channel for the
+	pipeline.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Radial Basis Function Coefficient Type</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">These toggles determine the coefficient type
+	of the radial specifier in the pipeline.</FONT></DD><DT>
+	<FONT COLOR="#000000"><B>Normalizing Interval</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This group controls the pipeline's normalizing
+	interval. If <I>Calculate Automatically</I> is selected, the
+	normalizing interval will be computed by the pipeline to exactly
+	match the range of the voxels, and the <I>Min</I> and <I>Max</I>
+	fields will be disabled. If it is cleared, the <I>Min</I> and <I>Max</I>
+	fields are enabled, allowing you to use the normalizing interval of
+	a different force field than the current one, allowing comparison on
+	the same visual scale.</FONT></DD><DD STYLE="margin-bottom: 0.2in">
+	<BR><BR>
+	</DD></DL>
+<P>
+<FONT COLOR="#800000"><FONT COLOR="#000000">You may want to use this
+feature in conjunction with other dialogs:</FONT> </FONT>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#000000">The <I>Residue
+	Dialog</I> can help you identify which residues have high energy. </FONT>
+	</P>
+	<LI><P STYLE="margin-bottom: 0.2in"><FONT COLOR="#000000">The
+	<I>Drawing Toggles Dialog</I> can give you a combined drawing style
+	to your liking. </FONT>
+	</P>
+</UL>
+<H2><FONT COLOR="#000000">The Record Dialog</FONT></H2>
+<P STYLE="margin-bottom: 0in"><FONT COLOR="#000000">This dialog is
+invoked from the <I>Energy Visualization Dialog</I> by the <I>Load
+Minimization Record</I> button. With it you can interactively view
+the iteration steps of the minimization performed by the energy
+plug-in, if that feature is supported. One record is stored for each
+iteration, containing the energy values, atom positions, and force
+field gradients in the minimization state at the end of that
+iteration. A record file is compatible with a protein if it contains
+the same number of atoms as the protein and the same number of energy
+component terms as the current energy calculator plug-in. When a
+record file is loaded, the first record in the file is selected and
+applied to the protein in the main window.</FONT></P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><FONT COLOR="#000000"><IMG SRC="RecordDialog.png" NAME="Graphic16" ALIGN=BOTTOM WIDTH=353 HEIGHT=175 BORDER=0></FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0in"><BR>
+</P>
+<P STYLE="margin-bottom: 0in"><BR>
+</P>
+<DL>
+	<DT><B>File name</B></DT><DD>
+	This field displays the name of the record file that was loaded, and
+	how many records it contains.</DD><DT>
+	<B>Current record number</B></DT><DD>
+	This field displays the selected record number. The single arrow
+	buttons select the next or previous record. The double arrow buttons
+	move to the first or last record in the file. The slider below
+	allows arbitrary positioning; no effects are seen in the rest of the
+	user interface until the mouse button is released from the slider.</DD><DT>
+	<B>Frame step</B></DT><DD>
+	This is the number of iterations to include in each video frame,
+	when the <I>Generate Video Frames</I> button is pressed. For
+	example, if it is 20 (as shown), each frame will represent 20
+	iterations of the minimization, so for the file shown (161 records),
+	there would be nine frames (eight each showing 20 iterations, and
+	one showing only one).</DD><DT>
+	<B>Generate Video Frames</B></DT><DD STYLE="margin-bottom: 0.2in">
+	Beginning at the currently selected record, generate images from the
+	main window to the end of the file. Frames are stored in PNG format
+	for image quality; this feature requires that the ImageMagick
+	toolkit be installed on your platform. The images are stored in a
+	subdirectory called frames below the current working directory; any
+	prior contents of the directory will be lost. The first frame shows
+	only the current state of the protein at the time the button is
+	pressed. Each subsequent record is loaded from the file and applied
+	to the protein state (energy renderer, etc.). Every time a number of
+	iterations equal to the frame step has been loaded, another frame is
+	written to the file. The final frame may show fewer than the full
+	number of iterations. Subsequent image processing and video encoding
+	is beyond the scope of this application.</DD></DL>
+<P STYLE="margin-bottom: 0in">
+<BR>
+</P>
+<H2><A NAME="BuildBeta"></A><FONT COLOR="#000000">The BuildBeta
+Dialog</FONT></H2>
+<P STYLE="margin-bottom: 0in"><FONT COLOR="#000000">The BuildBeta
+Dialog, see Figure 7, is used to load a prediction file and PDB file
+for the BuildBeta routine as desribed in </FONT><A HREF="BuildBeta.html"><FONT COLOR="#000000">BuildBeta</FONT></A><FONT COLOR="#800000"><FONT COLOR="#000000">.</FONT>
+</FONT>
+</P>
+<TABLE WIDTH=100% BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=28*>
+	<COL WIDTH=99*>
+	<COL WIDTH=98*>
+	<COL WIDTH=31*>
+	<TR>
+		<TD WIDTH=11% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+		<TD WIDTH=39%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#800000"><B><FONT COLOR="#000000">(a)</FONT></B>&nbsp;<IMG SRC="BuildBetaDisabled.png" NAME="Graphic14" ALIGN=TOP WIDTH=364 HEIGHT=130 BORDER=0></FONT></P>
+		</TD>
+		<TD WIDTH=38%>
+			<P ALIGN=CENTER><BR><BR>
+			</P>
+			<P ALIGN=CENTER><FONT COLOR="#800000"><B><FONT COLOR="#000000">(b)</FONT></B>&nbsp;<IMG SRC="BuildBetaCore.png" NAME="Graphic15" ALIGN=TOP WIDTH=364 HEIGHT=130 BORDER=0></FONT></P>
+		</TD>
+		<TD WIDTH=12% VALIGN=TOP>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD COLSPAN=4 WIDTH=100%>
+			<P><B>Figure 7:</B> The BuildBeta Dialog. (a)&nbsp;No prediction
+			or PDB file is selected. (b)&nbsp;Both prediction and PDB files
+			are selected.</P>
+		</TD>
+	</TR>
+</TABLE>
+<DL>
+	<DT><FONT COLOR="#000000"><B>Pred</B> </FONT>
+	</DT><DD>
+	<FONT COLOR="#000000">This text field shows the loaded prediction
+	file name. </FONT>
+	</DD><DT>
+	<FONT COLOR="#000000"><B>PDB</B> </FONT>
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	<FONT COLOR="#000000">This text field shows the loaded PDB file
+	name. </FONT>
+	</DD></DL>
+<P>
+<FONT COLOR="#800000"><FONT COLOR="#000000">You can load only a
+prediction file without a structure of a core part to perform the
+BuildBeta routine. Sometimes the structure of a core part of a
+protein is determined by homology with a known structure, and the
+task is to extend a sheet in the core by placing the remaining beta
+strands. In this case, both a prediction file and the corresponding
+PDB file with REMARK BEGINCORE and REMARK ENDCORE remarks should be
+loaded.</FONT> </FONT>
+</P>
+</BODY>
+</HTML>

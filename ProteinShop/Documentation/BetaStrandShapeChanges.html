@@ -1,0 +1,18 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Beta-strand Shape Changes</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Beta-strand Shape Changes</H1>
+
+ProteinShop supports global shape changes for individual beta-strands to adjust them to their environment in beta-sheets. The provided manipulation method follows the scheme presented by Richardson and Richardson in&nbsp;[1]. The two-dimensional parameter space of coherent shape changes defined by changing all phi angles by the same amount, or all psi angles by the same amount, is spanned by four basis manipulations that have a more comprehensible geometric meaning. <EM>Twist</EM> increments both phi and psi by the same amount, while <EM>pleat</EM> increments all phi angles by the same amount, and decrements all psi angles by this amount.<P>
+
+Since the dihedral angles of a beta-strand are close to 180&nbsp;degrees, the backbone forms a zig-zag pattern, with the residues on alternating sides. Thus changes in phi and&nbsp;psi of period two also have coherent effects on the strand shape. <EM>Curl</EM>, a period two change also suggested in&nbsp;[1], decreases the phi and increases the psi of odd numbered residues, counting from the beginning of the strand, and does the opposite for even numbered residues. To fill out the four-dimensional space of period two changes to phi and&nbsp;psi, we added a fourth basis element, not described in&nbsp;[1], called <EM>braid</EM>. It increases both phi and&nbsp;psi for odd numbered residues, and decreases them for even numbered residues.<P>
+
+All these manipulations can be accessed through rollers in the <A HREF="DialogWindowReference.html#StructureDialog">Structure Dialog</A>.<P>
+
+<B>[1]</B>&nbsp;Richardson, J.S. and Richardson, D.C., <EM>Principles and Patterns of Protein Conformation</EM>, in: Fassman, G.D., ed., <EM>Prediction of Protein Structure and the Principles of Protein Conformation</EM>, Plenum Press, New York, New York, 1989
+
+</BODY>
+</HTML>

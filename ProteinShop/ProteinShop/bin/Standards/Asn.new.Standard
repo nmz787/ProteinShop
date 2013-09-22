@@ -1,0 +1,15 @@
+HEADER                                                                  ASNS   0
+ATOM      1 N    ASN     1       1.311   0.000  -0.570  0.00  0.00      ASNS   1
+ATOM      2 HN   ASN     1       1.568  -0.566  -1.361  0.00  0.00      ASNS   2
+ATOM      3 CA   ASN     1       0.000   0.000   0.000  0.00  0.00      ASNS   3
+ATOM      4 HA   ASN     1      -0.539  -0.867  -0.353  0.00  0.00      ASNS   4
+ATOM      5 C    ASN     1      -0.702   1.231  -0.460  0.00  0.00      ASNS   5
+ATOM      6 O    ASN     1      -1.308   1.949   0.333  0.00  0.00      ASNS   6
+ATOM      7 CB   ASN     1       0.000   0.000   1.538  0.00  0.00      ASNS   7
+ATOM      8 HB1  ASN     1       0.519  -0.907   1.915  0.00  0.00      ASNS   8
+ATOM      9 HB2  ASN     1       0.519   0.907   1.915  0.00  0.00      ASNS   9
+ATOM     10 CG   ASN     1      -1.446   0.000   2.008  0.00  0.00      ASNS  10
+ATOM     11 OD1  ASN     1      -1.808  -0.711   2.944  0.00  0.00      ASNS  11
+ATOM     12 ND2  ASN     1      -2.297   0.858   1.383  0.00  0.00      ASNS  12
+ATOM     13 HD21 ASN     1      -1.961   1.451   0.651  0.00  0.00      ASNS  13
+ATOM     14 HD22 ASN     1      -3.258   0.895   1.656  0.00  0.00      ASNS  14

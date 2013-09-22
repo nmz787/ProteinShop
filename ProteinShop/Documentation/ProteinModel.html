@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Protein Model</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Protein Model</H1>
+
+ProteinShop models proteins as a three-level hierarchy: organic molecule, amino acid residue chain, and secondary structure chain.
+
+<H2>Level 1: Organic Molecule</H2>
+
+A protein is modelled as an undirected graph, where nodes are represented by atoms and edges are represented by covalent bonds between atoms. This graph is constructed whenever a protein is created by reading an input file. Each atom inside a protein stores its position in 3D&nbsp;cartesian coordinates. ProteinShop's manipulation features allow changing atom coordinates, but there is no provision to change any other parts of a protein graph.
+
+<H2>Level 2: Amino Acid Residue Chain</H2>
+
+For each protein, ProteinShop also stores a list of amino acid residues. Every atom inside a protein is associated with exactly one residue from the chain. The residue chain and the correspondence between atoms and residues are created together with the protein graph while reading an input file, and cannot be changed later.
+
+<H2><A NAME="StructureChain">Level 3: Secondary Structure Chain</H2>
+
+Every residue inside a protein has an associated secondary structure type. ProteinShop distinguishes three types: alpha-helix, beta-strand and coil region. Sequences of consecutive residues with the same associated secondary structure type are considered to form a single secondary structure of that type. The association between residues and structure types, and the chain of secondary structures implicitly defined by it, are created while reading an input file. ProteinShop allows changing structure type associations on a per-residue basis during manipulation, and therefore indirectly allows to change a protein's secondary structure chain.
+
+</BODY>
+</HTML>

@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Structure Type Assignment</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Structure Type Assignment</H1>
+
+ProteinShop supports three basic secondary structure types (alpha-helix, beta-strand and coil region), which are individually assigned to amino acid residues during protein creation, see <A HREF="ProteinCreation.html">Section&nbsp;1.1.3</A>. These assignments are not fixed, however, and can be changed on a per-residue basis at any time during protein manipulation.<P>
+
+To assign a new structure type to a given residue, it has to be selected first, see <A HREF="SubstructureSelection.html#ResidueSelection">Section&nbsp;1.3.1</A>. Afterwards, the selected residue's structure type can be set to any of the three choices via the &quot;Structure type&quot; drop box in the <A HREF="DialogWindowReference.html#ResidueDialog">Residue Dialog</A>.<P>
+
+<H2>Effect on Secondary Structure Chain</H2>
+
+In ProteinShop, the <A HREF="ProteinModel.html"StructureChain">third level</A> of protein representation, chain of secondary structures, is defined implicitly by the structure types associated with each amino acid residue. Each secondary structure is defined as containing the longest possible sequence of amino acid residues that have identical structure types. This means that reassigning the structure type of any residue will change the secondary structure chain. The following changes are possible by reassigning the structure type of a single residue:
+<DL>
+<DT><B>Shift of boundary between two structures</B></DT>
+<DD>If the type of the first or last residue of a secondary structure is changed to the type of the neighbouring structure, the changed residue is in effect moved into the neighbouring structure. The total number of secondary structures and their order stay the same.</DD>
+
+<DT><B>Structure split</B></DT>
+<DD>If the structure type of a residue inside a secondary structure is changed to a different type, the old structure is split into three new structures: a &quot;left&quot; structure containing all residues up to, but not including, the changed residue, a &quot;right&quot; structure containing all residues after, but not including, the changed residue, and a new single-residue structure. The former two structures are of the same type as the original structure, and the new structure has the new type of the changed residue.</DD>
+
+<DT><B>Structure type change</B></DT>
+<DD>If the changed residue is the only residue inside a single-residue structure, and the residue's new type is different from the previous and subsequent secondary structures' types, the old structure is simply changed to have the residue's new type, but the structure chain is otherwise unaffected.</DD>
+
+<DT><B>Structure merge</B></DT>
+<DD>If the changed residue is the only residue contained in a single-residue secondary structure, and the residue's new type is the same as the previous structure's type, the old structure and the previous structure merge (&quot;merge to the left&quot;), reducing the total number of structures by one. The same happens if the residue's new structure type is the same as the subsequent structure's type (&quot;merge to the right&quot;). If the residue's new type is identical to the previous and subsequent structures' types, all three structures are merged into a single one.</DD>
+</DL>
+
+<H2>Effect on Selected Residue's Dihedral Angles</H2>
+
+Changing a residue's structure type does not affect that residue's dihedral angles. This means that secondary structures created by changing the types of a sequence of residues do not immediately take their correct shapes. For example, reassigning the type of all residues inside an alpha-helix to beta-strand will create a beta-strand structure, as far as ProteinShop is concerned. However, since dihedral angles are not changed by type reassignments, the new beta-strand will still be in an alpha-helix configuration. To change a new structure's configuration to conform with its new type, the user has to select the &quot;Reset to Standard&quot; button in the <A HREF="DialogWindowReference.html#StructureDialog">Structure Dialog</A>. This button will reset the dihedral angles of all residues contained in the currently selected structure to the default dihedral angles for that structure's type.
+
+</BODY>
+</HTML>

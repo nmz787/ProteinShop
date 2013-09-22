@@ -1,0 +1,15 @@
+ATOM      1  N   GLU     1      -1.458   0.000   0.000  1.00 33.00      AUTO        
+ATOM      2  HN  GLU     1      -1.871   0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  GLU     1       0.000   0.000   0.000  1.00 33.00      AUTO        
+ATOM      4  HA  GLU     1       0.336   0.917  -0.507  1.00 33.00      AUTO H      
+ATOM      5  C   GLU     1       0.551  -1.198  -0.766  1.00 33.00      AUTO        
+ATOM      6  O   GLU     1       0.024  -2.306  -0.667  1.00 33.00      AUTO        
+ATOM      7  CB  GLU     1       0.536   0.000   1.433  1.00 33.00      AUTO        
+ATOM      8  HB1 GLU     1       1.624  -0.160   1.406  1.00 33.00      AUTO H      
+ATOM      9  HB2 GLU     1       0.099  -0.851   1.977  1.00 33.00      AUTO H      
+ATOM     10  CG  GLU     1       0.246   1.278   2.204  1.00 33.00      AUTO        
+ATOM     11  HG1 GLU     1      -0.841   1.443   2.238  1.00 33.00      AUTO H      
+ATOM     12  HG2 GLU     1       0.685   2.133   1.668  1.00 33.00      AUTO H      
+ATOM     13  CD  GLU     1       0.791   1.240   3.618  1.00 33.00      AUTO        
+ATOM     14  OE1 GLU     1       1.225   0.156   4.060  1.00 33.00      AUTO        
+ATOM     15  OE2 GLU     1       0.785   2.297   4.285  1.00 33.00      AUTO        

@@ -1,0 +1,12 @@
+HEADER                                                                  SERS   0
+ATOM      1 N    SER     1       1.311   0.000  -0.570  0.00  0.00      SERS   1
+ATOM      2 HN   SER     1       1.568  -0.566  -1.361  0.00  0.00      SERS   2
+ATOM      3 CA   SER     1       0.000   0.000   0.000  0.00  0.00      SERS   3
+ATOM      4 HA   SER     1      -0.539  -0.867  -0.353  0.00  0.00      SERS   4
+ATOM      5 C    SER     1      -0.702   1.231  -0.460  0.00  0.00      SERS   5
+ATOM      6 O    SER     1      -1.308   1.949   0.333  0.00  0.00      SERS   6
+ATOM      7 CB   SER     1       0.000   0.000   1.538  0.00  0.00      SERS   7
+ATOM      8 HB1  SER     1       0.526  -0.907   1.905  0.00  0.00      SERS   8
+ATOM      9 HB2  SER     1       0.526   0.907   1.905  0.00  0.00      SERS   9
+ATOM     10 OG   SER     1      -1.334   0.000   2.026  0.00  0.00      SERS  10
+ATOM     11 HG   SER     1      -1.357  -0.454   2.872  0.00  0.00      SERS  11

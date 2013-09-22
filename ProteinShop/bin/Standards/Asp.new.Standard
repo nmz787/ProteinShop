@@ -1,0 +1,13 @@
+HEADER                                                                  ASPS   0
+ATOM      1 N    ASP     1       1.311   0.000  -0.570  0.00  0.00      ASPS   1
+ATOM      2 HN   ASP     1       1.568  -0.566  -1.361  0.00  0.00      ASPS   2
+ATOM      3 CA   ASP     1       0.000   0.000   0.000  0.00  0.00      ASPS   3
+ATOM      4 HA   ASP     1      -0.539  -0.867  -0.353  0.00  0.00      ASPS   4
+ATOM      5 C    ASP     1      -0.702   1.231  -0.460  0.00  0.00      ASPS   5
+ATOM      6 O    ASP     1      -1.308   1.949   0.333  0.00  0.00      ASPS   6
+ATOM      7 CB   ASP     1       0.000   0.000   1.538  0.00  0.00      ASPS   7
+ATOM      8 HB1  ASP     1       0.519  -0.907   1.915  0.00  0.00      ASPS   8
+ATOM      9 HB2  ASP     1       0.519   0.907   1.915  0.00  0.00      ASPS   9
+ATOM     10 CG   ASP     1      -1.446   0.000   2.008  0.00  0.00      ASPS  10
+ATOM     11 OD1  ASP     1      -2.251   0.786   1.442  0.00  0.00      ASPS  11
+ATOM     12 OD2  ASP     1      -1.753  -0.751   2.972  0.00  0.00      ASPS  12

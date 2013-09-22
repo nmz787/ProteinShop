@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>ProteinShop User's Manual - Main Menu Reference</TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 1.1.3  (Linux)">
+	<META NAME="CREATED" CONTENT="20041215;12510000">
+	<META NAME="CHANGED" CONTENT="20050423;23262900">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H1>Main Menu Reference</H1>
+<H2>The File Menu</H2>
+<P>The File menu contains entries concerning loading/saving data
+files in various formats and exiting the program. 
+</P>
+<DL>
+	<DT><B>Load Prediction File</B> 
+	</DT><DD>
+	Shows a file selection dialog that allows loading a prediction file
+	in FASTA format, see <A HREF="ProteinCreation.html#PredictionFiles">Section&nbsp;1.1.3</A>.
+	If the selected file is a valid prediction file, the current protein
+	will be replaced with the protein created by reading the selected
+	prediction file. 
+	</DD><DT>
+	<B>Load Angle File</B> 
+	</DT><DD>
+	Shows a file selection dialog that allows loading a dihedral angle
+	file. If the selected file is a valid dihedral angle file and
+	matches the current protein, the dihedral angles stored in the file
+	are applied to the current protein. 
+	</DD><DT>
+	<B>Save Angle File</B> 
+	</DT><DD>
+	Shows a file selection dialog that allows saving a dihedral angle
+	file. If a filename is selected, the dihedral angles of all
+	currently active coil regions will be written to the selected file. 
+	</DD><DT>
+	<B>Load PDB File</B> 
+	</DT><DD>
+	Shows a file selection dialog that allows loading a PDB file, see
+	<A HREF="ProteinCreation.html#PDBFiles">Section&nbsp;1.1.3</A>. If
+	the selected file is a valid PDB file, the current protein will be
+	replaced with the protein created by reading the selected PDB file. 
+	</DD><DT>
+	<B>Save PDB File</B> 
+	</DT><DD>
+	Shows a file selection dialog that allows saving a PDB file. If a
+	filename is selected, the current protein will be written to the
+	selected file. ProteinShop always includes secondary structure
+	comments when writing PDB files, see <A HREF="ProteinCreation.html#PDBFiles">Section&nbsp;1.1.3</A>.
+	This means that the current protein can be exactly recreated by
+	reading the PDB file just written (up to the precision of cartesian
+	coordinates stored in PDB files, of course). 
+	</DD><DT>
+	<B>Quit</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	Exits the program. If the current protein has been manipulated, but
+	not been saved to a PDB file, ProteinShop will ask for confirmation
+	before exiting. 
+	</DD></DL>
+<H2>
+The Server Menu</H2>
+<P>The Server menu contains entries concerning the use of ProteinShop
+as a front-end for a remote protein structure prediction process.
+This menu, and the front-end functionality, is not useful if there is
+no remote prediction server that understands ProteinShop's
+communications protocol. 
+</P>
+<DL>
+	<DT><B>Connect</B> 
+	</DT><DD>
+	Shows a dialog that allows connecting to a remote protein structure
+	prediction server using a compatible communications interface. When
+	connecting to a server, the current protein must match the protein
+	being worked on by the server. This can be ensured by first loading
+	a correct prediction or PDB file. 
+	</DD><DT>
+	<B>Disconnect</B> 
+	</DT><DD>
+	Disconnects from a currently connected prediction server. This does
+	not affect the current protein. 
+	</DD><DT>
+	<B>Get Optimization Tree</B> 
+	</DT><DD>
+	Downloads a graph of candidate protein structures from the server.
+	The graph will always be written out to a text file named
+	&quot;OptimizationTree.txt&quot;. 
+	</DD><DT>
+	<B>Get Configuration</B> 
+	</DT><DD>
+	Shows a dialog that allows downloading a queued candidate
+	configuration from the remote server. The desired configuration's
+	index in the server queue can be specified with the &quot;Configuration
+	index&quot; slider. 
+	</DD><DT>
+	<B>Get Configuration by ID</B> 
+	</DT><DD>
+	Shows a dialog that allows downloading a candidate configuration
+	from the server using its unique ID&nbsp;number. The desired ID can
+	be entered into the &quot;Configuration&nbsp;ID&quot; text field. 
+	</DD><DT>
+	<B>Get Best Configuration</B> 
+	</DT><DD>
+	Downloads the &quot;best&quot; configuration currently in the
+	server's queue. 
+	</DD><DT>
+	<B>Add Current Configuration</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	Re-submits the current protein to the remote prediction server for
+	future consideration. 
+	</DD></DL>
+<H2>
+The Edit Menu</H2>
+<P>The Edit menu contains entries to access ProteinShop's Undo/Redo
+functionality, see Section&nbsp;x.y.z. 
+</P>
+<DL>
+	<DT><B>Undo</B> 
+	</DT><DD>
+	Undoes the last atomic manipulation on the current protein. 
+	</DD><DT>
+	<B>Redo</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	Redoes the last undone atomic manipulation on the current protein. 
+	</DD></DL>
+<H2>
+The View Menu</H2>
+<P>The View menu contains entries concerning viewpoint navigation,
+see <A HREF="ViewpointNavigation.html">Section&nbsp;1.2.2</A>. 
+</P>
+<DL>
+	<DT><B>Center View</B> 
+	</DT><DD>
+	Resets viewing parameters, see <A HREF="ViewpointNavigation.html#ViewProtein">Section&nbsp;1.2.2</A>.
+		</DD><DT>
+	<B>Save Current View</B></DT><DD STYLE="font-weight: medium">
+	Saves the current viewing direction, position, and orientation.</DD><DT>
+	<B>Restore Saved View</B></DT><DD STYLE="font-weight: medium">
+	Restores the saved viewing direction, position, and orientation.</DD><DT STYLE="margin-bottom: 0.2in">
+	<BR><BR>
+	</DT></DL>
+<H2>
+<FONT COLOR="#000000">The Tool Menu</FONT></H2>
+<DL>
+	<DT><FONT COLOR="#000000">The Tool menu contains entries that permit to
+	toggle the visibility of the BuildBeta and Copy dialog.<B><BR><BR>BuildBeta</B>
+	</FONT>
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	<FONT COLOR="#ff6666"><FONT COLOR="#000000">Toggle visibility of the</FONT>
+	<A HREF="DialogWindowReference.html#BuildBeta">BuildBeta Dialog</A>.</FONT>
+		</DD></DL>
+<P STYLE="margin-bottom: 0in">
+<FONT COLOR="#000000"><B>Copy</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in"><FONT COLOR="#000000">Toggle
+	visibility of the Copy Dialog. Selected residues will be duplicated
+	to create a new fragment with the same name as the protein structure being copied. A single secondary
+	structure will be duplicated if a secondary second structure is
+	selected. </FONT>
+	</DD></DL>
+<H2>
+The Windows Menu</H2>
+<P>The Windows menu contains entries that permit to toggle the
+visibility of several program dialogs. 
+</P>
+<DL>
+	<DT><B>Show Residue Dialog</B> 
+	</DT><DD>
+	Toggles visibility of the <A HREF="DialogWindowReference.html#ResidueDialog">Residue
+	Dialog</A>. 
+	</DD><DT>
+	<B>Show Structure Dialog</B> 
+	</DT><DD>
+	Toggles visibility of the <A HREF="DialogWindowReference.html#StructureDialog">Structure
+	Dialog</A>. 
+	</DD><DT>
+	<B>Show Sequence Dialog</B></DT><DD STYLE="font-weight: medium">
+	Toggles visibility of the Sequence Dialog.</DD><DT>
+	<B>Show Ramachandran Plot Window</B> 
+	</DT><DD>
+	Toggles visibility of the <A HREF="RamachandranPlots.html#RamachandranPlotWindow">Ramachandran
+	Plot Window</A>. 
+	</DD><DT>
+	<B>Show Drawing Toggles Dialog</B> 
+	</DT><DD>
+	Toggles visibility of the <A HREF="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+	Toggles Dialog</A>. 
+	</DD><DT>
+	<B>Show Selection Dialog</B></DT><DD STYLE="font-weight: medium">
+	Toggles visibility of the <A HREF="DialogWindowReference.html#SelectionDialog">Selection
+	Dialog</A>.</DD><DT>
+	<B>Show Energy Visualization Dialog</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	Toggles visibility of the <A HREF="DialogWindowReference.html#EnergyVisualizationDialog">Energy
+	Visualization Dialog</A>. 
+	</DD></DL>
+<H2>
+The Help Menu</H2>
+<DL>
+	<DT><B>About ProteinShop</B> 
+	</DT><DD STYLE="margin-bottom: 0.2in">
+	Shows a message box with copyright and contact information. 
+	</DD></DL>
+</BODY>
+</HTML>

@@ -1,0 +1,18 @@
+HEADER                                                                  GLNS   0
+ATOM      1 N    GLN     1       1.311   0.000  -0.570  0.00  0.00      GLNS   1
+ATOM      2 HN   GLN     1       1.568  -0.566  -1.361  0.00  0.00      GLNS   2
+ATOM      3 CA   GLN     1       0.000   0.000   0.000  0.00  0.00      GLNS   3
+ATOM      4 HA   GLN     1      -0.539  -0.867  -0.353  0.00  0.00      GLNS   4
+ATOM      5 C    GLN     1      -0.702   1.231  -0.460  0.00  0.00      GLNS   5
+ATOM      6 O    GLN     1      -1.308   1.949   0.333  0.00  0.00      GLNS   6
+ATOM      7 CB   GLN     1       0.000   0.000   1.538  0.00  0.00      GLNS   7
+ATOM      8 HB1  GLN     1       0.536  -0.907   1.890  0.00  0.00      GLNS   8
+ATOM      9 HB2  GLN     1       0.536   0.907   1.890  0.00  0.00      GLNS   9
+ATOM     10 CG   GLN     1      -1.403   0.000   2.148  0.00  0.00      GLNS  10
+ATOM     11 HG1  GLN     1      -1.956  -0.907   1.823  0.00  0.00      GLNS  11
+ATOM     12 HG2  GLN     1      -1.956   0.907   1.823  0.00  0.00      GLNS  12
+ATOM     13 CD   GLN     1      -1.257   0.000   3.663  0.00  0.00      GLNS  13
+ATOM     14 OE1  GLN     1      -0.147   0.000   4.193  0.00  0.00      GLNS  14
+ATOM     15 NE2  GLN     1      -2.402   0.101   4.390  0.00  0.00      GLNS  15
+ATOM     16 HE21 GLN     1      -3.285   0.170   3.925  0.00  0.00      GLNS  16
+ATOM     17 HE22 GLN     1      -2.362   0.105   5.389  0.00  0.00      GLNS  17

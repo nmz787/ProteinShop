@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Undo/Redo</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Undo/Redo</H1>
+
+To prevent a user from accidentally destroying a complex protein structure (and to make it easier to maneuver around the various bugs in its current implementation), ProteinShop supports an advanced undo function that allows taking back any number of manipulation steps, and redoing any number of previosuly undone steps. To undo the last manipulation, one can either select the &quot;Undo&quot; entry in the &quot;Edit&quot; menu, or press the <B>&lt;Alt&gt;+z</B>&nbsp;hotkey. To redo the last undone manipulation, one can either select the &quot;Redo&quot; entry in the &quot;Edit&quot; menu, or press the <B>&lt;Alt&gt;+x</B>&nbsp;hotkey.
+
+<H2>Atomic Manipulation Steps</H2>
+
+A single invocation of the undo function will reverse the effects of the last <EM>atomic manipulation step</EM>, defined as one of the following:
+<UL>
+<LI>A single click on the &quot;Randomize Angles&quot; button in the <A HREF="DialogWindowReference.html#ResidueDialog">Residue Dialog</A>.</LI>
+<LI>A single dragging operation (between pressing and releasing the mouse button) of any of the &quot;Beta Strand Shape Adjustment&quot; sliders in the <A HREF="DialogWindowReference.html#StructureDialog">Structure Dialog</A>.</LI>
+<LI>A single click on the &quot;Flatten B-strand&quot; button in the <A HREF="DialogWindowReference.html#StructureDialog">Structure Dialog</A>.</LI>
+<LI>A single click on the &quot;Reset to Standard&quot; button in the <A HREF="DialogWindowReference.html#StructureDialog">Structure Dialog</A>.</LI>
+<LI>A single dragging operation (between pressing and releasing the mouse button) of the 3D&nbsp;interaction widget, see <A HREF="StructureDragging.html">Section&nbsp;1.3.4</A>.</LI>
+<LI>A single invocation of semi-automatic hydrogen bonding, see <A HREF="SemiautomaticHydrogenBonding.html">Section&nbsp;1.3.5</A>.</LI>
+<LI>Loading of a single dihedral angle file, see <A HREF="DihedralAngleFiles.html">Section&nbsp;1.3.6</A>.</LI>
+</UL>
+Changes that cannot be undone include creating a new protein by reading a prediction file or a PDB file (creating a new protein will clear the undo buffer), and downloading a protein conformation from a connected remote structure prediction server.
+
+<H2>Undo Stack</H2>
+
+ProteinShop manages undoable and undone manipulations as a single stack. This means that it works almost exactly like the &quot;Back&quot; and&nbsp;&quot;Forward&quot; button combination found in most web browsers. Even though it is possible to move back arbitrarily many steps, and to move backwards/forward as much as desired, the stack of undone operations is cleared whenever a new manipulation is performed. For example, if one undoes four manipulations, and then performs a new manipulation, the four undone manipulations can no longer be redone.
+
+</BODY>
+</HTML>

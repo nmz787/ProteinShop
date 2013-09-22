@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Program Overview</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Program Overview</H1>
+
+ProteinShop is a tool to interactively create protein structures &quot;from scratch,&quot; or to interactively manipulate protein structures guided by visual cues. ProteinShop was originally designed to be used in the context of protein structure prediction. For example, it can be used to create initial configurations for global internal energy minimization, or to refine result configurations after optimization. ProteinShop contains a plug-in interface that allows to couple it with modules that perform computation on a protein's 3D cartesian atom coordinates, and return some value which is then visualized by ProteinShop. A typical example would be a module that calculates a visualized protein's internal energy. Furthermore, ProteinShop contains a remote interface that allows coupling it with protein structure prediction programs running on a remote backend. In this context, ProteinShop can be used as a monitoring and steering application. More specifically, it can be used to download configurations from the backend, manipulate them, and upload them to the backend again for further consideration.
+
+<H2>Program Usage</H2>
+
+ProteinShop permits visualization of more than one protein. Proteins are created by either reading an input file during program startup (the input file name is provided on the program's command line) or by loading a pdb file using the menu. Proteins can be visualized in the program's main window using a combination of available rendering modes, and they can be manipulated using one of the manipulation tools. Proteins can be saved to a file (currently in PDB format) at any time. 
+
+</BODY>
+</HTML>

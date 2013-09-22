@@ -1,0 +1,33 @@
+nmz787 - 21 September 2013
+downloaded version 3.1.1 of ProteinShop from sourceforge (sourceforge.net/projects/proteinshop/files/proteinshop/ProteinShop3.1.1/)
+deleted Geometry Math and Misc directories and replaced them with the latest (v3.0 http://idav.ucdavis.edu/~okreylos/ResDev/Geometry/Download.html)
+
+Then I had to change Globals.cpp line 75 from
+char *ext = strrchr(basename, '.');
+to:
+char const *ext = strrchr(basename, '.');
+
+Then in SpaceBall.h I had to change:
+<string> 
+to:
+<string.h>
+
+downloaded and installed g77 via (http://askubuntu.com/questions/346278/really-need-g77-on-ubuntu-12-04-cant-install)
+
+modified CFLAGS in the Makefile, I commented out the line:
+CFLAGS = -g0 -03 -DNDEBUG
+and changed it to just:
+CFLAGS = -g
+
+I added:
+template ComponentArray<float,3>::ComponentArray(const ComponentArray<float,4>&);
+after line 62 in src/Geometry/ComponentArray.cpp
+
+Dependencies (at least the things I installed)
+
+g77 (included... run ./install.sh)
+
+fluid
+libfltk1.3
+libfltk1.3-dev
+libfltk-gl1.3

@@ -1,0 +1,11 @@
+HEADER                                                                  ALAS   0
+ATOM      1 N    ALA     1       1.311   0.000  -0.570  0.00  0.00      ALAS   1
+ATOM      2 HN   ALA     1       1.568  -0.566  -1.361  0.00  0.00      ALAS   2
+ATOM      3 CA   ALA     1       0.000   0.000   0.000  0.00  0.00      ALAS   3
+ATOM      4 HA   ALA     1      -0.539  -0.867  -0.353  0.00  0.00      ALAS   4
+ATOM      5 C    ALA     1      -0.702   1.231  -0.460  0.00  0.00      ALAS   5
+ATOM      6 O    ALA     1      -1.308   1.949   0.333  0.00  0.00      ALAS   6
+ATOM      7 CB   ALA     1       0.000   0.000   1.538  0.00  0.00      ALAS   7
+ATOM      8 HB1  ALA     1      -1.047   0.000   1.909  0.00  0.00      ALAS   8
+ATOM      9 HB2  ALA     1       0.524  -0.907   1.909  0.00  0.00      ALAS   9
+ATOM     10 HB3  ALA     1       0.524   0.907   1.909  0.00  0.00      ALAS  10

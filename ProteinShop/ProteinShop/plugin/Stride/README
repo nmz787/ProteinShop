@@ -1,0 +1,4 @@
+ProteinShop uses STRIDE to compute the secondary structure given the
+protein 3D coordinates.  This distribution includes the appropriate STRIDE 
+binary with the proper suffix.  See more information on 
+http://www.embl-heidelberg.de/stride/stride_info.html. 

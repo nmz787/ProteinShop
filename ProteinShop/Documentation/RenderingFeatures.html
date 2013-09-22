@@ -1,0 +1,443 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>ProteinShop User's Manual - Rendering Features</title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.1  (Linux)">
+  <meta name="CREATED" content="20041206;17131900">
+  <meta name="CHANGED" content="20041207;17432700">
+</head>
+<body dir="ltr" lang="en-US">
+<h1>Rendering Features</h1>
+<p>ProteinShop supports several basic rendering modes for protein
+structures, and several manipulation guides that are designed to
+assist a user in creating "good" protein structures. All
+rendering features can be toggled on/off either via hotkeys, or via
+the <a href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a>. Most features can be toggled both globally for an
+entire protein or on a per-structure basis. If a rendering feature
+can be toggled per structure and has a hotkey, it can be toggled for
+the currently selected structure by holding down the <b>&lt;Ctrl&gt;</b>&nbsp;modifier
+key and pressing the appropriate hotkey for the global setting.</p>
+<p>Rendering modes can be combined arbitrarily (leading to more or
+less useful results). Features that have both a global and
+per-structure setting are enabled only if both settings are turned
+on. For example, hydrogen bond site rendering is, per default,
+disabled globally and enabled per-structure for all beta-strands in a
+protein. If the feature is then enabled globally, all beta-strands
+will be rendered with hydrogen bond sites. </p>
+<h2>Protein Rendering Modes</h2>
+<p>ProteinShop's basic protein rendering modes are modeled after
+those found in other molecular visualization packages. </p>
+<h3>Van-der-Waals Spheres</h3>
+<p style="margin-bottom: 0in;">In this rendering mode, each atom
+inside a protein is rendered as a sphere, see Figure&nbsp;1. The
+radius of a sphere is the van-der-Waals radius of its atom's element.
+Spheres are colored according to standard usage in chemical
+visualization programs and textbooks. This rendering mode can be
+toggled globally or per structure, via one of the "Draw atoms"
+toggles in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>a</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img
+ src="RenderingFeaturesVanDerWaalsSpheres.png" name="Graphic1"
+ align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 1:</b> Visualization of a protein using
+van-der-Waals spheres.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Bond Sticks</h3>
+<p style="margin-bottom: 0in;">In this mode, each covalent bond inside
+a protein is rendered as a two-color cylinder of fixed radius, see
+Figure&nbsp;2. Each cylinder half is colored according to the element
+of the atom at that end of the cylinder. This rendering mode can be
+toggled globally or per structure, via one of the "Draw side
+chain bonds" toggles in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>b</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img src="RenderingFeaturesBondSticks.png"
+ name="Graphic2" align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 2:</b> Visualization of a protein using bond sticks.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Structure Cartoons</h3>
+<p>In this mode, only a protein's backbone is rendered to reduce
+occlusion and visual clutter, see Figure&nbsp;3. ProteinShop uses
+different glyphs to visually distinguish the three basic secondary
+structure types: </p>
+<ul>
+  <li>
+    <p style="margin-bottom: 0in;">Alpha-helices are rendered as
+helices of thick ribbons in a red-purple color. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0in;">Beta-strands are rendered as thick
+arrows in a blue-purple color. </p>
+  </li>
+  <li>
+    <p>Coil regions are rendered as cylindrical tubes in a purple
+color. </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0in;">This rendering mode can be toggled
+globally or per structure, via one of the "Draw structure
+cartoons" toggles in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>n</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img
+ src="RenderingFeaturesStructureCartoons.png" name="Graphic3"
+ align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 3:</b> Visualization of a protein using structure
+cartoons.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="color: rgb(0, 0, 0);">Tubes</h3>
+<p style="color: rgb(0, 0, 0);">In this mode, only a protein's backbone
+is
+rendered to reduce occlusion and visual clutter, see Figure&nbsp;4.
+ProteinShop uses different colors to visually distinguish the three
+basic secondary
+structure types: </p>
+<ul style="color: rgb(0, 0, 0);">
+  <li>
+    <p style="margin-bottom: 0in;">Alpha-helices are rendered as
+cylindrical tubes in a red-purple color. </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0in;">Beta-strands are rendered as
+cylindrical tubes with an arrow head in a blue-purple color. </p>
+  </li>
+  <li>
+    <p>Coil regions are rendered as cylindrical tubes in a purple
+color. </p>
+  </li>
+</ul>
+<p style="margin-bottom: 0in;"><font style="color: rgb(0, 0, 0);"
+ color="#800000">This rendering
+mode can be toggled globally or per structure, via one of the "Draw
+tube" toggles in the </font><a style="color: rgb(0, 0, 0);"
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a><font color="#800000"><span
+ style="color: rgb(0, 0, 0);"> or via the </span><b
+ style="color: rgb(0, 0, 0);">t</b><span style="color: rgb(0, 0, 0);">&nbsp;hotkey.</span>
+</font></p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <col width="256*"> <tbody>
+    <tr>
+      <td width="100%">
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><font color="#800000"><img
+ src="RenderingFeaturesTubes.png" name="Graphic8" align="bottom"
+ border="0" height="335" width="450"></font></p>
+      </td>
+    </tr>
+    <tr style="color: rgb(0, 0, 0);">
+      <td width="100%">
+      <p><b>Figure 4:</b> Visualization of a protein using tubes.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="color: rgb(0, 0, 0);">CPKs</h3>
+<p style="color: rgb(0, 0, 0);">In this mode, each covalent bond inside
+a
+protein is rendered as a two-color cylinder of fixed radius and a
+sphere at the end of cylinder, see Figure&nbsp;5. Each half-cylinder
+and sphere is colored according to the element of the atom at the
+end of that cylinder. This rendering mode can be toggled globally or
+per structure, via one of the "Draw CPK" toggles in the
+<a href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>k</b>&nbsp;hotkey.
+</p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <col style="color: rgb(0, 0, 0);" width="256*"> <tbody>
+    <tr>
+      <td width="100%">
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><font color="#800000"><img
+ src="RenderingFeatureCPKs.png" name="Graphic9" align="bottom"
+ border="0" height="335" width="450"></font></p>
+      </td>
+    </tr>
+    <tr style="color: rgb(0, 0, 0);">
+      <td width="100%">
+      <p><b>Figure 5:</b> Visualization of a protein using CPKs.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3 style="color: rgb(0, 0, 0);">Lines</h3>
+<p style="margin-bottom: 0in;"><font style="color: rgb(0, 0, 0);"
+ color="#800000">In this mode,
+each covalent bond inside a protein is rendered as a two-color line,
+see Figure&nbsp;6. Each half-line is colored according to the element
+of the atom at the end of that line. This rendering mode can be
+toggled globally or per structure, via one of the "Draw line"
+toggles in the </font><a style="color: rgb(0, 0, 0);"
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a><font color="#800000"><span
+ style="color: rgb(0, 0, 0);"> or via the </span><b
+ style="color: rgb(0, 0, 0);">w</b><span style="color: rgb(0, 0, 0);">&nbsp;hotkey.</span>
+</font></p>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <col width="256*"> <tbody>
+    <tr>
+      <td width="100%">
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><font color="#800000"><img
+ src="RenderingFeaturesLines.png" name="Graphic10" align="bottom"
+ border="0" height="335" width="450"></font></p>
+      </td>
+    </tr>
+    <tr style="color: rgb(0, 0, 0);">
+      <td width="100%">
+      <p><b>Figure 6:</b> Visualization of a protein using lines.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h2>Manipulation Guides</h2>
+<p>ProteinShop supports several rendering features that are designed
+to provide guidance during protein manipulation. The first three
+guides are concerned with forming backbone-to-backbone hydrogen
+bonds; the last is concerned with removing interferences between
+atoms. </p>
+<h3>Hydrogen Bonds</h3>
+<p style="margin-bottom: 0in;">When this feature is enabled,
+ProteinShop constantly monitors the position/orientation of all
+backbone N-H and C=O groups, and detects any hydrogen bonds between
+any pair of opposingly charged groups in real-time. Hydrogen bonds
+will be rendered as bold dashed yellow lines between the hydrogen and
+oxygen atom positions of the involved N-H and C=O groups, see
+Figure&nbsp;7. ProteinShop does not check for hydrogen bonds
+involving partially charged sidechain groups. This rendering mode can
+be toggled globally only, via the the "Draw hydrogen bonds"
+toggle in the <a href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> dialog or via the <b>h</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img src="RenderingFeaturesHydrogenBonds.png"
+ name="Graphic4" align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 7:</b> Visualization of hydrogen bonds. Hydrogen
+bonds are rendered as bold dashed yellow lines connecting the hydrogen
+and oxygen atoms of a pair of backbone N-H and C=O groups that are in a
+valid relative position/orientation.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>ProteinShop uses a simplified geometrical model to determine
+whether two opposingly charged backbone groups form a hydrogen bond.
+If the two groups' atoms are denoted as N, H, C, and&nbsp;O, then the
+two groups form a hydrogen bond if, and only if, </p>
+<ol>
+  <li>
+    <p style="margin-bottom: 0in;">the distance between N and&nbsp;O is
+between 2.7 and&nbsp;3.2 Angstrom, </p>
+  </li>
+  <li>
+    <p style="margin-bottom: 0in;">the distance between H and&nbsp;O is
+between 1.7 and&nbsp;2.35 Angstrom, and </p>
+  </li>
+  <li>
+    <p>the angle between the line connecting N and&nbsp;H and the line
+connecting H and&nbsp;O is not larger than 45&nbsp;degrees. </p>
+  </li>
+</ol>
+<p>Note that the C=O group's carbon atom is not considered. </p>
+<h3>Hydrogen Bond Sites</h3>
+<p style="margin-bottom: 0in;">Hydrogen bond rendering only visualizes
+formed hydrogen bonds, but does not provide guidance about how to
+form them. Hydrogen bond sites are simple visual guides for this
+purpose, see Figure&nbsp;8. A hydrogen bond site is the midpoint
+between the hydrogen and oxygen atoms involved in an "average"
+hydrogen bond. When hydrogen bond site rendering is enabled,
+ProteinShop draws a line segment connecting the hydrogen or oxygen
+atom of each backbone N-H or C=O group to its respective bond site.
+The bond site itself is highlighted by a dot. A charged group's line
+segment and dot are colored according to polarity: Bond sites of N-H
+groups are colored cyan; bond sites of C=O groups are colored red.
+This rendering mode can be toggled globally or per structure, via one
+of the "Draw hydrogen bond sites" toggles in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>s</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img
+ src="RenderingFeaturesHydrogenBondSites.png" name="Graphic5"
+ align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 8:</b> Visualization of hydrogen bond sites.
+Hydrogen bond sites are rendered as line segments between a backbone
+N-H or C=O group's outer atom (hydrogen or oxygen) and the midpoint of
+a potential "average" hydrogen bond involving that group. The potential
+midpoint is highlighted by a dot. Hydrogen bond sites are colored
+according to their group's outer atom (cyan for N-H, red for C=O).</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>As the result, two opposingly charged groups will form a hydrogen
+bond if their bond site dots are close to each other, and their bond
+site line segments point away from each other. The problem of
+aligning two structures to form hydrogen bonds is therefore reduced
+to overlaying pairs of differently colored dots. Compare Figures 7
+and&nbsp;8 for two renderings of an identical alignment, the first
+with hydrogen bonds and the second with hydrogen bond sites
+visualized. </p>
+<h3>Hydrogen Bond Cages</h3>
+<p style="margin-bottom: 0in;">Hydrogen bond sites as described above
+provide good guidance for rapid creation of coarse alignments, but
+they sometimes lack the needed precision to form many hydrogen bonds
+between two structures. Hydrogen cages, see Figure&nbsp;9, are a more
+precise representation of the regions of space ProteinShop considers
+valid for forming hydrogen bonds. A hydrogen cage is a yellow
+wireframe cage around the region of space the oxygen atom of a
+backbone C=O group has to fall into to form a hydrogen bond with the
+backbone N-H group associated with the cage. In hydrogen cage
+rendering, oxygen atoms of backbone C=O groups are rendered as red
+dots at the oxygen atom's position, and a red line segment connecting
+the oxygen and the carbon atom. This rendering mode can be toggled
+globally or per structure, via one of the "Draw hydrogen cages"
+toggles in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>c</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img
+ src="RenderingFeaturesHydrogenBondCages.png" name="Graphic6"
+ align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 9:</b> Visualization of hydrogen bond cages.
+Hydrogen bond cages are yellow wireframe cages close to a backbone N-H
+group's hydrogen atom, surrounding the region of space a backbone C=O
+group's oxygen atom has to fall into for the two groups to form a
+hydrogen bond.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p>Due to their size and complexity, hydrogen cages can lead to
+visual clutter. ProteinShop supports an alternative rendering mode
+that only draws the outer shell of each hydrogen cage, reducing the
+amount of geometry rendered. Rendering of small hydrogen cages can be
+toggled on a per-structure basis only, via the "Draw small
+hydrogen cages" toggle in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>&lt;Ctrl&gt;+l</b>&nbsp;hotkey. </p>
+<h3>Atom Collisions</h3>
+<p style="margin-bottom: 0in;">ProteinShop ignores atom-atom
+interferences during manipulation. This provides more freedom for
+interaction, and allows to change parts of an already assembled
+protein structure with ease. However, before a protein structure can
+be submitted for optimization or other post-processing, it is usually
+necessary to clean up "bad" interferences. To assist in
+clean-up, ProteinShop provides a feature that tests any pair of atoms
+inside a protein for collisions in real-time during manipulation, and
+visualizes any occurring collisions, see Figure&nbsp;10. Two atoms
+are considered to collide if their distance is less than
+0.75&nbsp;times
+the sum of their van-der-Waals radii. A colliding atom pair is
+visualized by rendering a red " collision sphere" at the
+midpoint between the two atoms. The collision sphere's radius is
+proportional to the penetration depth of the two atoms' van-der-Waals
+spheres. This rendering mode can be toggled globally only, via the
+the "Draw atom collisions" toggle in the <a
+ href="DialogWindowReference.html#DrawingTogglesDialog">Drawing
+Toggles Dialog</a> or via the <b>p</b>&nbsp;hotkey. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><br>
+      <br>
+      </p>
+      <p align="center"><img src="RenderingFeaturesAtomCollisions.png"
+ name="Graphic7" align="bottom" border="0" height="335" width="450"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 10:</b> Visualization of atom collisions. Atom pairs
+whose van-der-Waals spheres penetrate by more than 25% of their added
+radii are visualized by rendering a red collision sphere at their
+midpoint. Collision sphere radii are proportional to penetration depth.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+<br>
+</p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+ATOM      1  N   ASN     1      -1.458   0.000   0.000  1.00 39.00      AUTO        
+ATOM      2  HN  ASN     1      -1.871   0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  ASN     1       0.000   0.000   0.000  1.00 39.00      AUTO        
+ATOM      4  HA  ASN     1       0.336   0.917  -0.507  1.00 39.00      AUTO H      
+ATOM      5  C   ASN     1       0.551  -1.198  -0.766  1.00 39.00      AUTO        
+ATOM      6  O   ASN     1       0.024  -2.306  -0.667  1.00 39.00      AUTO        
+ATOM      7  CB  ASN     1       0.536   0.000   1.433  1.00 39.00      AUTO        
+ATOM      8  HB1 ASN     1       1.629  -0.119   1.412  1.00 39.00      AUTO H      
+ATOM      9  HB2 ASN     1       0.128  -0.867   1.973  1.00 39.00      AUTO H      
+ATOM     10  CG  ASN     1       0.186   1.268   2.186  1.00 39.00      AUTO        
+ATOM     11  OD1 ASN     1      -0.108   2.299   1.582  1.00 39.00      AUTO        
+ATOM     12  ND2 ASN     1       0.216   1.195   3.511  1.00 39.00      AUTO        
+ATOM     13 HD21 ASN     1       0.461   0.335   3.959  1.00 39.00      AUTO H      
+ATOM     14 HD22 ASN     1      -0.006   2.000   4.061  1.00 39.00      AUTO H      

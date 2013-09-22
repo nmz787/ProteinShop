@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE>ProteinShop User's Manual - Viewpoint Navigation</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Viewpoint Navigation</H1>
+
+<H2>Camera Model</H2>
+
+ProteinShop uses a perspective-projection camera with a fixed field of view for 3D visualization. The camera is defined by the following parameters:
+
+<DL>
+<DT>View Center</DT>
+<DD>The 3D point the camera is &quot;focused&quot; on. Changing the camera orientation will rotate the entire view around this point.</DD>
+
+<DT>Camera Orientation</DT>
+<DD>The position of the camera on a sphere surrounding the view center (measured in angles alpha and beta), and the rotation of the camera view around the view direction.</DD>
+
+<DT>View Distance</DT>
+<DD>The distance between the camera position and the view center. By changing the view distance, the camera view appears to zoom in/out.
+</DT>
+
+When a new protein is loaded/created, or the &quot;Center View&quot; menu entry is selected, the view center will be set to the protein's center point, the camera will look along the negative z-axis with the y-axis pointing up, and the view distance will be calculated such that the entire protein is visible.
+
+<TABLE WIDTH=100% CELLSPACING=16 CELLPADDING=0 BORDER=0>
+<TR><TD ALIGN=CENTER><IMG SRC="CameraModel.png" WIDTH=385 HEIGHT=385></TD></TR>
+<TR><TD><B>Figure 1:</B> ProteinShop's camera model. The perspective projection, fixed field-of-view camera moves on the surface of a sphere around the current view center.</TD></TR>
+</TABLE>
+
+<H2>Trackball Interface</H2>
+
+ProteinShop supports a trackball interface that allows direct manipulation of the displayed image to change view center, camera orientation and view distance.
+
+<H3>Rotating</H3>
+
+The main display window in ProteinShop is overlayed with a &quot;virtual trackball,&quot; an imaginary sphere that can be rotated by dragging it with the mouse. The trackball is grabbed by pressing the left mouse button (without holding down any modifier keys), and can be dragged by moving the mouse as long as the mouse button is depressed. The effect of dragging on camera orientation depends on the position of the mouse cursor when the left mouse button was pressed. If the mouse cursor was close to the display window's center, dragging left/right will rotate the view around the vertical axis and dragging up/down will rotate the view around the horizontal axis; if the mouse cursor was close to the window's boundaries, dragging in a circular motion around the window's center will rotate the view around the window's center.<P>
+
+If the left mouse button is released while the mouse is still being moved, ProteinShop will keep the display spinning according to the mouse's movement direction and speed at the moment the mouse button was released. Spinning will stop as soon as any mouse button is depressed again.
+
+<H3>Panning</H3>
+
+Panning allows to move the view center in a plane perpendicular to the current view direction. Panning is started by pressing the middle mouse button (without holding down any modifier keys), and continues as long as the middle mouse button is depressed.
+
+<H3>Zooming</H3>
+
+Zooming, or, more precisely, dollying, changes the view distance. After pressing both the left and middle mouse buttons, view distance can be increased (&quot;zooming out&quot;) by moving the mouse upwards, and can be decreased (&quot;zooming in&quot;) by moving the mouse downwards, as long as both mouse buttons are depressed.
+
+<H2>View Recentering</H2>
+
+The trackball interface described above works well to examine entire protein structures, and smaller details, from all sides. Examination is most convenient when the view center is close to the structure being examined; in that case rotating and zooming work most intuitively. ProteinShop provides shortcuts that move the view center to points of interest.
+
+<H3><A NAME="ViewProtein">Show Entire Protein</H3>
+
+ProteinShop's camera can be reset to its default position&nbsp;- showing the current protein in its entirety&nbsp;- by selecting the &quot;Center View&quot; entry in the &quot;View&quot; menu, or by pressing the <B>&lt;Alt&gt;-c</B>&nbsp;hotkey. This will set the view center to the protein's center point, set the camera to view along the negative z-axis with the y-axis pointing up, and calculate a view distance such that the entire current protein is visible.
+
+<H3><A NAME="ViewAtom">Center View on Atom</H3>
+
+The trackball interface described above only directly supports moving the view center in a plane perpendicular to the current viewing direction. The view center can be moved in 3D by sequences of rotating and panning interactions, but setting the view center to a position of interest inside a protein can be tedious. Therefore, ProteinShop supports to move the view center to any atom inside the current protein by first pressing the <B>Z</B>&nbsp;hotkey, and then clicking the left mouse button on any atom currently visible in the display window. ProteinShop will then show a short animation as the view center moves from its current to the requested position. ProteinShop determines which atom was selected by the atoms' van-der-Waals radii. In other words, when the current rendering mode is set to display van-der-Waals spheres, the view center will move to the atom whose sphere was underneath the mouse cursor when the left mouse button was clicked.
+
+</BODY>
+</HTML>

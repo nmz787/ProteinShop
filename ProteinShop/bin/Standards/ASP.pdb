@@ -1,0 +1,12 @@
+ATOM      1  N   ASP     1      -1.458   0.000   0.000  1.00 51.00      AUTO        
+ATOM      2  HN  ASP     1      -1.871   0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  ASP     1       0.000   0.000   0.000  1.00 51.00      AUTO        
+ATOM      4  HA  ASP     1       0.336   0.917  -0.507  1.00 51.00      AUTO H      
+ATOM      5  C   ASP     1       0.551  -1.198  -0.766  1.00 51.00      AUTO        
+ATOM      6  O   ASP     1       0.024  -2.306  -0.667  1.00 51.00      AUTO        
+ATOM      7  CB  ASP     1       0.536   0.000   1.433  1.00 51.00      AUTO        
+ATOM      8  HB1 ASP     1       1.616  -0.209   1.417  1.00 51.00      AUTO H      
+ATOM      9  HB2 ASP     1       0.059  -0.814   1.999  1.00 51.00      AUTO H      
+ATOM     10  CG  ASP     1       0.292   1.315   2.147  1.00 51.00      AUTO        
+ATOM     11  OD1 ASP     1      -0.027   2.312   1.464  1.00 51.00      AUTO        
+ATOM     12  OD2 ASP     1       0.419   1.350   3.388  1.00 51.00      AUTO        

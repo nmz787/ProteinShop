@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+  <title>Ramachandranplots.html</title>
+  <meta name="GENERATOR" content="OpenOffice.org 1.1.1  (Linux)">
+  <meta name="CREATED" content="20041207;17485000">
+  <meta name="CHANGED" content="20041207;18083700">
+</head>
+<body dir="ltr" lang="en-US">
+<p style="margin-bottom: 0in;"><b><font size="4">Dihedral Angle
+Visualization</font></b> <br>
+<!-- 0000,0000,EEEE -->ProteinShop
+contains a feature to visualize the
+distribution of backbone dihedral angles in selected regions of the
+current protein. The "Ramachandran Plot Window" shows a
+2D&nbsp;scatter plot of the backbone dihedral angles of the selected
+secondary structure and all active coil regions, overlayed over a
+pre-computed map of the Ramachandran energy calculated for each
+possible combination of (phi, psi) dihedral angles, see Figure&nbsp;1.
+The Ramachandran Plot Window can be shown by selecting the "Show
+Ramachandran Plot Window" toggle in the Windows Menu. </p>
+<table border="0" cellpadding="0" cellspacing="16" width="100%">
+  <tbody>
+    <tr>
+      <td>
+      <p align="center"><img src="RamachandranPlotWindow.png"
+ name="Graphic1" align="top" border="0" height="350" width="350"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <p><b>Figure 1:</b>Visualization of backbone dihedral angles in
+the Ramachandran Plot Window. Dihedral angles of the selected secondary
+structure are shown as white dots; dihedral angles of all active coil
+regions are shown as black dots; <font color="#800000"><span
+ style="color: rgb(0, 0, 0);">dihedral angles of the selected residue
+are shown as a large blue dot</span>.</font> Phi angles are mapped on
+the horizontal axis (from -pi to pi); psi angles are mapped on the
+vertical axis (from -pi to pi). </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><br>
+<br>
+<b><font size="4">Dihedral Angle Scatter Plot</font></b>
+<br>
+ProteinShop visualizes backbone dihedral angles by mapping each
+residue's phi angle along the scatter plot's horizontal axis, from
+-pi to pi (left to right), and each residue's psi angle along the
+vertical axis, from -pi to pi (bottom to top). All angles are
+measured in radians. The (phi, psi) coordinate frame, with its origin
+in the center of the scatter plot, is visualized as a white cross.
+<br>
+<br>
+The Ramachandran Plot Window only visualizes dihedral angles
+of residues contained in either the currently selected secondary
+structure or in any of the active coil regions. Dihedral angles from
+the currently selected secondary structure are visualized as white
+dots;
+dihedral angles from the active coil regions are visualized as black
+dots, <font style="color: rgb(0, 0, 0);" color="#800000">dihedral
+angles of the selected residue
+are shown as a large white dot</font><span style="color: rgb(0, 0, 0);">.
+</span><font style="color: rgb(0, 0, 0);" color="#800000">The
+white dot of the selected residue will turn into blue color when
+the mouse enters the plot. Dragging the blue dot and moving around
+inside
+the plot will change the dihedral angles of the selected residue. The
+3D
+structure of the protein will change accordingly.</font><br>
+<br>
+<b><font size="4">Ramachandran
+Energy Map</font></b> <br>
+The Ramachandran energy map underneath the
+dihedral angle scatter plot is not maintained by ProteinShop, but
+loaded from a provided image file at program startup. In the energy
+map provided with ProteinShop, energies are visualized as colors
+ranging from blue (low energy) to red (high energy). <br>
+<br>
+The used
+energy map is stored in an image file in binary PPM format in the
+ProteinShop main directory. Users can supply their own energy maps by
+replacing the Ramachandran64.ppm file with another color image. The
+image must have width and height of a power of two (the image is used
+as a texture map), and must be stored in binary (or raw) PPM format
+(with exactly one comment line in the PPM header). The definition of
+the PPM image file format can be found on the World Wide Web;
+alternatively, many commercial and open-source image manipulation
+programs, e.g., the Gimp, can write PPM files of the correct format. </p>
+</body>
+</html>

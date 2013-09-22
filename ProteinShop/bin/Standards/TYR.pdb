@@ -1,0 +1,21 @@
+ATOM      1  N   TYR     1      -1.458   0.000   0.000  1.00 43.00      AUTO        
+ATOM      2  HN  TYR     1      -1.871   0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  TYR     1       0.000   0.000   0.000  1.00 43.00      AUTO        
+ATOM      4  HA  TYR     1       0.336   0.917  -0.507  1.00 43.00      AUTO H      
+ATOM      5  C   TYR     1       0.551  -1.198  -0.766  1.00 43.00      AUTO        
+ATOM      6  O   TYR     1       0.024  -2.306  -0.667  1.00 43.00      AUTO        
+ATOM      7  CB  TYR     1       0.536   0.000   1.433  1.00 43.00      AUTO        
+ATOM      8  HB1 TYR     1       1.629  -0.123   1.405  1.00 43.00      AUTO H      
+ATOM      9  HB2 TYR     1       0.128  -0.871   1.967  1.00 43.00      AUTO H      
+ATOM     10  CG  TYR     1       0.203   1.253   2.212  1.00 43.00      AUTO        
+ATOM     11  CD1 TYR     1       1.005   2.383   2.118  1.00 43.00      AUTO        
+ATOM     12  HD1 TYR     1       1.892   2.363   1.468  1.00 43.00      AUTO H      
+ATOM     13  CD2 TYR     1      -0.912   1.301   3.038  1.00 43.00      AUTO        
+ATOM     14  HD2 TYR     1      -1.558   0.415   3.124  1.00 43.00      AUTO H      
+ATOM     15  CE1 TYR     1       0.708   3.531   2.826  1.00 43.00      AUTO        
+ATOM     16  HE1 TYR     1       1.353   4.418   2.742  1.00 43.00      AUTO H      
+ATOM     17  CE2 TYR     1      -1.225   2.441   3.754  1.00 43.00      AUTO        
+ATOM     18  HE2 TYR     1      -2.112   2.462   4.404  1.00 43.00      AUTO H      
+ATOM     19  CZ  TYR     1      -0.414   3.555   3.646  1.00 43.00      AUTO        
+ATOM     20  OH  TYR     1      -0.716   4.695   4.354  1.00 43.00      AUTO        
+ATOM     21  HH  TYR     1      -1.548   4.545   4.889  1.00 43.00      AUTO H      

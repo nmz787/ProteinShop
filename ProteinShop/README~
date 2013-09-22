@@ -1,0 +1,219 @@
+README file for ProteinShop v3.1.1			https://github.com/nmz787/protein-shop
+
+Quick Install Instructions:
+sudo apt-get install build-essential fluid libfltk1.3 libfltk1.3-dev libfltk-gl1.3
+tar -xvf ProteinShop_3.1.1_ubuntu_debian.tar.gz
+cd g77_x86_debian_and_ubuntu/
+(or if you have a 64-bit OS installed)
+cd g77_x64_debian_and_ubuntu/
+chmod +x ./install.sh
+./install.sh
+if there are any errors, try using this command to fix installation issues:
+sudo apt-get install -f
+cd ../ProteinShop/src
+make
+
+================================================================================
+
+ProteinShop is an interactive tool for manipulating protein structures. 
+It was designed to quickly create a diverse set of initial configurations 
+for a given sequence of amino acids. These configurations can be used as 
+starting points to a global optimization algorithm. Although ProteinShop 
+does not perform the global optimization process itself, it provides a 
+framework that can be used to interact with a global optimization process 
+that may be running on a remote machine. 
+
+    * 	It helps researchers automatically generate tertiary structures from sequence
+		and secondary structure predictions available from prediction 
+		servers accessible via the Internet.
+    * 	It enables scientists to apply their biochemical knowledge and intuition 
+		during interactive manipulation of protein structures.
+    * 	It provides visualization of free energy computed during modeling to 
+		facilitate comparison and analysis of alternative structures.
+    * 	It accelerates the discovery of low-energy configurations by applying 
+		local optimizations to user-selected protein structures.
+    *   It automatically creates a variety of beta configurations based on probabilities
+   		for beta sheet topologies and matching alignments.
+
+About ProteinShop
+--------------------------------------
+
+ProteinShop was developed by researchers at Lawrence Berkeley National 
+Laboratory, University of California at Davis, and Lawrence Livermore National 
+Laboratory. ProteinShop can create a protein "from scratch" using its amino acid 
+sequence and secondary structure predictions. Also, ProteinShop can load a 3D 
+protein structure from data files in PDB (Protein Data Bank) format. Furthermore, 
+it allows the interactive manipulation of the 3D protein structure by changing 
+dihedral angles along its backbone. Protein structures created and/or 
+manipulated with ProteinShop can be saved to data files in PDB format.
+
+ProteinShop allows manual interaction guided by an externally provided 
+energy function.
+
+ProteinShop can be used to monitor and steer the progress of a 
+(remote) global optimization process by visualizing downloaded configurations, 
+manipulating them to achieve a desired fold, and loading them back to 
+the optimization process.
+
+ProteinShop presents three levels of functionality
+
+Level I: Display a 3D protein structure
+	* 	Create a 3D protein "from scratch", i.e., one amino acid at a time, 
+		from an amino acid sequence and secondary structure predictions.
+	*	Load a  3D protein structure from a PDB file.
+	*	Provide standard visualization techniques such as atom sphere, 
+		bond stick, and cartoon rendering.
+
+Level II: Interactive manipulation of the 3D protein structure by changing
+	 	dihedral angles along its backbone
+	*	Manual secondary structure alignment by dragging selected secondary 
+		structures (alpha-helices and beta-strands).
+	*	Change the shape of beta-strands by allowing twisting, curling, and 
+		pleating.
+	*	Form parallel/antiparallel beta-sheets automatically.
+	*	Save/load fragments of the protein for reuse in other configurations.
+	*	Help align secondary structures to form tertiary structures by providing 
+		visualization guides and markers such as hydrogen bond rendering and atom 
+		collision visualization.
+	*	Change secondary structure  types for selected amino acids "on-the-fly" 
+		to experiment with weak or conflicting secondary structure predictions.
+	*	Evaluate the energy of a 3D protein structure using externally provided 
+		energy computation code.
+	*	Visualize calculated energy.
+
+Level III: Monitor/steer a (remote) global optimization process
+	*	Connect to / disconnect from a global optimization process.
+	*	Download candidate configurations from an optimization process.
+	*	Upload manipulated configurations to optimization process.
+	*	Monitor optimization process by downloading entire tree of configurations.
+
+
+What's new in version 3.0?
+--------------------------------------
+
+	*	ProteinShop allows multiple proteins to be manipulated in the same 
+		environment. This allows comparative analysis of adjoining tertiary 
+		structures during the interactive manipulation process.	The user
+		can load either all the chains or a specific
+		chain/model in a PDB file. 
+	*	A new color representation for hydrophobic, hydrophilic, and disulfide 
+		residues.
+	*	New line, CPK, and tube rendering methods.
+	*	New labeling system for displaying information of protein structures such as 
+		atom and residue names, model and chain ID, energy value, and RMSD. 
+	*	Use of the Ramachandran plot to change dihedral angles of a
+		selected residue directly.
+	* 	A new UI for aligning two structures and calculating RMSD. 	
+	*	New "BuildBeta" tool for automatically creating
+		initial beta-sheet conformations.
+	*	New "Copy" tool for copying a fragment from a protein structure.
+	*	New energy visualization using volume rendering.
+	*	The energy value is continuously updated during a manipulation and
+		displayed on the screen.
+
+
+
+Disclaimer and Copyright
+--------------------------------------
+
+ProteinShop is Copyright (c) 2004, The Regents of the University of California, 
+through Lawrence Berkeley National Laboratory, Univ. of Calif. at Davis, 
+and Lawrence Livermore National Laboratory 
+(subject to receipt of any required approvals from U.S. Dept. of Energy).  
+All rights reserved.
+
+This program is free software; you can redistribute it and/or 
+modify it under the terms of the GNU General Public License 
+as published by the Free Software Foundation; either version 2 
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty of 
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License 
+along with this program; if not, write to the Free Software 
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+The authors request that any published work which utilizes ProteinShop 
+includes the following reference:
+
+
+S. Crivelli, O. Kreylos, B. Hamann, N. Max, and W. Bethel (2004).
+ProteinShop: A Tool for Interactive Protein Manipulation. 
+Journal of Computer-Aided Molecular Design, 18, 271-285.
+
+Electronic documents shall include a direct link to the official ProteinShop 
+page: http://proteinshop.lbl.gov/Index.html
+
+
+Library Dependencies
+--------------------------------------
+
+ProteinShop requires several libraries for various of its functions.
+	1. OpenGL or GL for 3-D rendering
+  	2. FLTK for GUI		http://www.fltk.org/
+	3. AMBER for energy computation 
+		(pre-built AMBER libraries for Linux and Mac are included)
+
+Other libraries are required by ProteinShop's energy features.
+Please visit the ProteinShop web site for more information:
+http://proteinshop.lbl.gov/Index.html
+
+
+
+Building ProteinShop from source
+--------------------------------------
+
+Use standard Makefiles included in the src directory.
+Go to the "src' directory then type 'make' to build ProteinShop. 
+
+***	FLTK setting in the Makefile
+The compiler expects include files under $(FLTK_BASE)/$(INCDIR),
+libraries under $(FLTK_BASE)/$(LIBDIR), and any needed build tools
+under $(FLTK_BASE)/$(BINDIR). If you have a different setup,
+you need to hand-edit the compiler flags below.
+
+FLTK_BASE = /usr/local
+
+On some installations, Fltk OpenGL functions are in a separate
+library, libfltk_gl. If the linker complains about undefined
+symbols, try adding -lfltk_gl to the line below before -lfltk.
+
+FLTK_LIBS = -L$(FLTK_BASE)/$(LIBDIR) -lfltk_gl -lfltk
+
+
+
+Documentation
+--------------------------------------
+
+The User's Guide is available along with this program under the Documentation
+directory. 
+
+
+
+Contact
+--------------------------------------
+
+For problems, questions, or suggestions, send e-mail to Dr. Silvia Crivelli 
+at SNCrivelli@lbl.gov.
+
+ProteinShop Team
+--------------------------------------
+Principal Investigator:
+	
+	Silvia N. Crivelli
+
+Major Author:
+	
+	Oliver Kreylos 	(UC Davis)
+	Nelson Max      (UC Davis, LBNL, LLNL)
+	James T. Lu     (QB3)
+	Clark Crawford	(UC Davis)
+
+Lawrence Berkeley National Laboratory
+1 Cyclotron Road, 
+Berkeley CA 94720 
+http://proteinshop.lbl.gov/Index.html
+

@@ -1,0 +1,15 @@
+HEADER                                                                  THRS   0
+ATOM      1 N    THR     1       1.311   0.000  -0.570  0.00  0.00      THRS   1
+ATOM      2 HN   THR     1       1.568  -0.566  -1.361  0.00  0.00      THRS   2
+ATOM      3 CA   THR     1       0.000   0.000   0.000  0.00  0.00      THRS   3
+ATOM      4 HA   THR     1      -0.539  -0.867  -0.353  0.00  0.00      THRS   4
+ATOM      5 C    THR     1      -0.702   1.231  -0.460  0.00  0.00      THRS   5
+ATOM      6 O    THR     1      -1.308   1.949   0.333  0.00  0.00      THRS   6
+ATOM      7 CB   THR     1       0.000   0.000   1.538  0.00  0.00      THRS   7
+ATOM      8 HB   THR     1       0.770   0.700   1.927  0.00  0.00      THRS   8
+ATOM      9 OG1  THR     1       0.231  -1.313   2.026  0.00  0.00      THRS   9
+ATOM     10 HG1  THR     1       0.682  -1.257   2.872  0.00  0.00      THRS  10
+ATOM     11 CG2  THR     1      -1.399   0.414   2.026  0.00  0.00      THRS  11
+ATOM     12 HG21 THR     1      -1.417   0.419   3.137  0.00  0.00      THRS  12
+ATOM     13 HG22 THR     1      -1.638   1.430   1.647  0.00  0.00      THRS  13
+ATOM     14 HG23 THR     1      -2.152  -0.309   1.647  0.00  0.00      THRS  14

@@ -1,0 +1,29 @@
+1. Added this section to the end of ProteinShop.cfg to use the AMBER energy. 
+2. Copy libAmber_XX.so to libAmber.so, where XX is your operating system either linux
+or darwin.
+
+Section EnergyCalculator
+    addCaps true
+    conTol 1.49012e-08
+    fcnTol 1e-12
+    gradTol 6.05545e-08
+    lineSearchTol 0.0001
+    maxStep 1e+20
+    maxIter 100000
+    maxBacktrackIter 5
+    maxFeval 1000
+    minStep 1e-20
+    stepTol 1e-9
+    verboseThreadTrace true
+    maxBuffer 1073741824
+    autoSaveGLState true
+    sliceFactor 0.707
+    textureCaching true
+    updateInterval 10
+    interpolationMode 1
+    renderingMode 1
+    textureFunction 0
+    voxelAlignment 1
+    dsoName ../lib/libAmber.so
+    enginePath ../lib
+EndSection

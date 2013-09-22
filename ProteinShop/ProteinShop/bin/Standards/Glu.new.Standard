@@ -1,0 +1,16 @@
+HEADER                                                                  GLUS   0
+ATOM      1 N    GLU     1       1.311   0.000  -0.570  0.00  0.00      GLUS   1
+ATOM      2 HN   GLU     1       1.568  -0.566  -1.361  0.00  0.00      GLUS   2
+ATOM      3 CA   GLU     1       0.000   0.000   0.000  0.00  0.00      GLUS   3
+ATOM      4 HA   GLU     1      -0.539  -0.867  -0.353  0.00  0.00      GLUS   4
+ATOM      5 C    GLU     1      -0.702   1.231  -0.460  0.00  0.00      GLUS   5
+ATOM      6 O    GLU     1      -1.308   1.949   0.333  0.00  0.00      GLUS   6
+ATOM      7 CB   GLU     1       0.000   0.000   1.538  0.00  0.00      GLUS   7
+ATOM      8 HB1  GLU     1       0.536  -0.907   1.890  0.00  0.00      GLUS   8
+ATOM      9 HB2  GLU     1       0.536   0.907   1.890  0.00  0.00      GLUS   9
+ATOM     10 CG   GLU     1      -1.403   0.000   2.148  0.00  0.00      GLUS  10
+ATOM     11 HG1  GLU     1      -1.956  -0.907   1.823  0.00  0.00      GLUS  11
+ATOM     12 HG2  GLU     1      -1.956   0.907   1.823  0.00  0.00      GLUS  12
+ATOM     13 CD   GLU     1      -1.257   0.000   3.663  0.00  0.00      GLUS  13
+ATOM     14 OE1  GLU     1      -0.093   0.000   4.145  0.00  0.00      GLUS  14
+ATOM     15 OE2  GLU     1      -2.306   0.092   4.355  0.00  0.00      GLUS  15

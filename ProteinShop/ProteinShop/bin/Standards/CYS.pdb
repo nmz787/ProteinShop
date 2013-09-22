@@ -1,0 +1,11 @@
+ATOM      1  N   CYS     1      -1.458   0.000   0.000  1.00  0.00      AUTO        
+ATOM      2  HN  CYS     1      -1.871  -0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  CYS     1       0.000   0.000   0.000  1.00  0.00      AUTO        
+ATOM      4  HA  CYS     1       0.336   0.917  -0.507  1.00  0.00      AUTO        
+ATOM      5  C   CYS     1       0.551  -1.198  -0.766  1.00  0.00      AUTO        
+ATOM      6  O   CYS     1       0.024  -2.306  -0.667  1.00  0.00      AUTO        
+ATOM      7  CB  CYS     1       0.536   0.000   1.433  1.00  0.00      AUTO        
+ATOM      8  HB1 CYS     1       1.629  -0.125   1.402  1.00  0.00      AUTO        
+ATOM      9  HB2 CYS     1       0.127  -0.872   1.964  1.00  0.00      AUTO        
+ATOM     10  SG  CYS     1       0.143   1.504   2.384  1.00  0.00      AUTO        
+ATOM     11  HG  CYS     1      -0.541   2.321   1.640  1.00  0.00      AUTO        

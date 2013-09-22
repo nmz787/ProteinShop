@@ -1,0 +1,11 @@
+ATOM      1  N   SER     1      -1.458   0.000   0.000  1.00  0.00      AUTO        
+ATOM      2  HN  SER     1      -1.871  -0.808   0.419  1.00  0.00      AUTO        
+ATOM      3  CA  SER     1       0.000   0.000   0.000  1.00  0.00      AUTO        
+ATOM      4  HA  SER     1       0.336   0.917  -0.507  1.00  0.00      AUTO        
+ATOM      5  C   SER     1       0.551  -1.198  -0.766  1.00  0.00      AUTO        
+ATOM      6  O   SER     1       0.024  -2.306  -0.667  1.00  0.00      AUTO        
+ATOM      7  CB  SER     1       0.536   0.000   1.433  1.00  0.00      AUTO        
+ATOM      8  HB1 SER     1       0.170   0.901   1.948  1.00  0.00      AUTO        
+ATOM      9  HB2 SER     1       1.633   0.070   1.401  1.00  0.00      AUTO        
+ATOM     10  OG  SER     1       0.133  -1.167   2.128  1.00  0.00      AUTO        
+ATOM     11  HG  SER     1       0.496  -1.142   3.060  1.00  0.00      AUTO        

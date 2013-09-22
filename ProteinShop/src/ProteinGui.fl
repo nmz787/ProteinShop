@@ -1,0 +1,1021 @@
+#/***************************************************************************************
+#*cr								
+#*cr					Copyright (c) 2004, The Regents of the 
+#*cr	University of California, through Lawrence Berkeley National Laboratory, 
+#*cr	Univ. of Calif. at Davis, and Lawrence Livermore National Laboratory 
+#*cr	(subject to receipt of any required approvals from U.S. Dept. of Energy).  
+#*cr							All rights reserved.
+#*cr		
+#*cr		Please see the accompanying LICENSE file for further information.
+#*cr
+#***************************************************************************************/
+
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0104 
+header_name {.h} 
+code_name {.cpp}
+Function {makeWindow()} {open
+} {
+  Fl_Window mainWindow {
+    label ProteinShop
+    callback windowCB
+    xywh {473 260 800 630} type Double hide resizable
+  } {
+    Fl_Menu_Bar mainMenuBar {open
+      xywh {0 0 800 30}
+    } {
+      submenu fileMenu {
+        label {&File}
+        xywh {0 0 100 20}
+      } {
+        menuitem loadPredictionFileButton {
+          label {Load &Prediction File...}
+          callback loadPredictionFileCB
+          xywh {0 0 100 20} divider
+        }
+        menuitem loadAngleFileButton {
+          label {Load &Angle File...}
+          callback loadAngleFileCB
+          xywh {0 0 100 20}
+        }
+        menuitem saveAngleFileButton {
+          label {Save Angle File...}
+          callback saveAngleFileCB
+          xywh {0 0 100 20} divider
+        }
+        menuitem loadPdbFileButton {
+          label {&Load PDB File...}
+          callback loadPdbFileCB
+          xywh {0 0 100 20}
+        }
+        menuitem savePdbFileButton {
+          label {&Save PDB File...}
+          callback savePdbFileCB
+          xywh {0 0 100 20} divider
+        }
+        menuitem saveScreenshotButton {
+          label {Save Screenshot...}
+          callback saveScreenshotCB
+          xywh {0 0 100 20} divider
+        }
+        menuitem quitButton {
+          label {&Quit}
+          callback quitCB
+          xywh {0 0 100 20} shortcut 0x80071
+        }
+      }
+      submenu serverMenu {
+        label {&Server}
+        xywh {0 0 100 20}
+      } {
+        menuitem connectButton {
+          label {&Connect...}
+          callback connectCB
+          xywh {0 0 100 20}
+        }
+        menuitem disconnectButton {
+          label {&Disconnect}
+          callback disconnectCB
+          xywh {0 0 100 20} divider
+        }
+        menuitem getOptimizationTreeButton {
+          label {Get &Optimization Tree}
+          callback getOptimizationTreeCB
+          xywh {0 0 100 20}
+        }
+        menuitem getConfigButton {
+          label {&Get Configuration...}
+          callback getConfigCB
+          xywh {0 0 100 20}
+        }
+        menuitem getConfigByIdButton {
+          label {Get Configuration by &ID...}
+          callback getConfigByIdCB
+          xywh {0 0 100 20}
+        }
+        menuitem getBestConfigButton {
+          label {Get &Best Configuration}
+          callback getBestConfigCB
+          xywh {0 0 100 20}
+        }
+        menuitem addConfigButton {
+          label {&Add Current Configuration}
+          callback addConfigCB
+          xywh {0 0 100 20}
+        }
+      }
+      submenu editMenu {
+        label {&Edit}
+        xywh {0 0 100 20}
+      } {
+        menuitem undoButton {
+          label {&Undo}
+          callback undoCB
+          xywh {0 0 100 20} shortcut 0x8007a deactivate
+        }
+        menuitem redoButton {
+          label {&Redo}
+          callback redoCB
+          xywh {0 0 100 20} shortcut 0x80078 deactivate
+        }
+      }
+      submenu viewMenu {
+        label {&View}
+        xywh {5 5 100 20}
+      } {
+        menuitem centerViewButton {
+          label {&Center View}
+          callback centerViewCB
+          xywh {0 0 100 20} shortcut 0x80063 divider
+        }
+        menuitem pushViewButton {
+          label {&Save Current View}
+          callback pushViewCB
+          xywh {0 0 100 20}
+        }
+        menuitem popViewButton {
+          label {&Restore Saved View}
+          callback popViewCB
+          xywh {0 0 100 20}
+        }
+      }
+      submenu windowsMenu {
+        label {&Windows}
+        xywh {0 0 100 20}
+      } {
+        menuitem showResidueDialogToggle {
+          label {Show &Residue Dialog}
+          callback showResidueDialogCB
+          xywh {0 0 100 20} type Toggle shortcut 0x80072
+        }
+        menuitem showStructureDialogToggle {
+          label {Show &Structure Dialog}
+          callback showStructureDialogCB
+          xywh {0 0 100 20} type Toggle shortcut 0x80073
+        }
+        menuitem showSequenceDialogToggle {
+          label {Show Se&quence Dialog}
+          callback showSequenceDialogCB
+          xywh {0 0 100 20} type Toggle
+        }
+        menuitem showRamachandranPlotWindowToggle {
+          label {Show Ramachandran &Plot Window}
+          callback showRamachandranPlotWindowCB
+          xywh {0 0 100 20} type Toggle
+        }
+        menuitem showRenderingDialogToggle {
+          label {Show Drawing &Toggles Dialog}
+          callback showRenderingDialogCB
+          xywh {0 0 100 20} type Toggle shortcut 0x80074
+        }
+        menuitem showSelectionDialogToggle {
+          label {Show Selection Dialog}
+          callback showSelectionDialogCB
+          xywh {0 0 100 20} type Toggle
+        }
+        menuitem showEnergyDialogToggle {
+          label {Show &Energy Visualization Dialog}
+          callback showEnergyDialogCB
+          xywh {0 0 100 20} type Toggle shortcut 0x80065
+        }
+      }
+      submenu toolMenu {
+        label {&Tool}
+        xywh {0 0 100 20}
+      } {
+        menuitem buildBetaButton {
+          label {&BuildBeta}
+          callback BuildBetaGuiCB
+          xywh {0 0 100 20}
+        }
+        menuitem copyButton {
+          label {&Copy}
+          callback copyGuiCB
+          xywh {0 0 100 20}
+        }
+      }
+      submenu helpMenu {
+        label {&Help}
+        xywh {0 0 100 20}
+      } {
+        menuitem aboutButton {
+          label {&About ProteinShop...}
+          callback aboutCB
+          xywh {0 0 100 20}
+        }
+      }
+    }
+    Fl_Group renderWindow {open
+      xywh {0 30 800 600} resizable
+      code0 {\#include "MyFlGlWindow.h"}
+      class MyFlGlWindow
+    } {}
+  }
+  Fl_Window connectDialog {
+    label {Connect to Server}
+    callback connectDialogCB
+    xywh {547 523 320 110} type Double hide modal
+  } {
+    Fl_Input connectDialogServerNameText {
+      label {Server name}
+      xywh {95 5 220 25}
+    }
+    Fl_Value_Input connectDialogServerPortInput {
+      label {Server port}
+      xywh {95 35 50 25} maximum 65535 step 1 value 26000
+    }
+    Fl_Return_Button connectDialogOkButton {
+      label OK
+      callback connectDialogOkCB
+      xywh {130 75 90 30}
+    }
+    Fl_Button connectDialogCancelButton {
+      label Cancel
+      callback connectDialogCancelCB
+      xywh {225 75 90 30}
+    }
+  }
+  Fl_Window getConfigDialog {
+    label {Get Configuration}
+    callback getConfigDialogCB
+    xywh {669 201 345 100} type Double hide modal
+  } {
+    Fl_Value_Slider getConfigDialogConfigIndexSlider {
+      label {Configuration index}
+      xywh {135 5 205 25} type {Horz Knob} align 4 step 1
+    }
+    Fl_Return_Button getConfigDialogOkButton {
+      label OK
+      callback getConfigDialogOkCB
+      xywh {155 45 90 30}
+    }
+    Fl_Button getConfigDialogCancelButton {
+      label Cancel
+      callback getConfigDialogCancelCB
+      xywh {250 45 90 30}
+    }
+  }
+  Fl_Window getConfigByIdDialog {
+    label {Get Configuration by ID}
+    callback getConfigByIdDialogCB
+    xywh {447 269 215 100} type Double hide modal
+  } {
+    Fl_Value_Input getConfigByIdDialogConfigurationIdInput {
+      label {Configuration ID}
+      xywh {115 5 95 25} maximum 0 step 1
+    }
+    Fl_Return_Button getConfigByIdDialogOkButton {
+      label OK
+      callback getConfigByIdDialogOkCB
+      xywh {25 45 90 30}
+    }
+    Fl_Button getConfigByIdDialogCancelButton {
+      label Cancel
+      callback getConfigByIdDialogCancelCB
+      xywh {120 45 90 30}
+    }
+  }
+  Fl_Window residueDialog {
+    label {Residue Dialog}
+    callback windowCB
+    xywh {332 530 310 275} type Double hide
+  } {
+    Fl_Value_Slider residueDialogResidueIndexSlider {
+      label {Residue index}
+      callback residueDialogResidueIndexCB
+      xywh {100 5 205 25} type {Horz Knob} align 4 minimum -1 maximum 300 step 1 value -1
+    }
+    Fl_Choice residueDialogResidueTypeChoice {
+      label {Residue type}
+      xywh {100 35 205 25} down_box BORDER_BOX
+    } {
+      menuitem {} {
+        label ACE
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Alanine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Arginine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Asparagine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label {Aspartic acid}
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Cysteine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Glutamine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label {Glutamic acid}
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Glycine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Histidine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Isoleucine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Leucine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Lysine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Methionine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label NME
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Phenylalanine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Proline
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Serine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Threonine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Tryptophan
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Tyrosine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Unknown
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        label Valine
+        xywh {0 0 100 20}
+      }
+      menuitem {} {
+        xywh {0 0 100 20}
+      }
+    }
+    Fl_Output residueDialogPdbResidueNameOutput {
+      label {PDB file name}
+      xywh {100 65 205 25}
+    }
+    Fl_Group {} {
+      label {Dihedral Angles}
+      xywh {5 125 300 85} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Value_Output residueDialogPhiOutput {
+        label Phi
+        xywh {35 150 115 25} minimum -180 maximum 180 step 0.001
+      }
+      Fl_Value_Output residueDialogPsiOutput {
+        label Psi
+        xywh {185 150 115 25} minimum -180 maximum 180 step 0.001
+      }
+      Fl_Button residueDialogRandomizeAnglesButton {
+        label {Randomize Angles}
+        callback residueDialogRandomizeAnglesCB
+        xywh {35 180 265 25}
+      }
+    }
+    Fl_Light_Button showPhobicButton {
+      label Hydrophobic
+      callback showHydrophobicButtonCB
+      xywh {5 215 90 25} labelsize 12
+    }
+    Fl_Light_Button showPhilicButton {
+      label Hydrophilic
+      callback showHydrophilicButtonCB
+      xywh {110 215 90 25} labelsize 12
+    }
+    Fl_Light_Button showDisulfideButton {
+      label Disulfide
+      callback showDisulfideButtonCB
+      xywh {215 215 90 25} labelsize 12
+    }
+    Fl_Box {} {
+      label Label
+      xywh {10 250 30 25}
+    }
+    Fl_Check_Button labelResidueNameToggle {
+      label Residue
+      callback labelResidueNameCB
+      xywh {45 250 75 25} down_box DIAMOND_DOWN_BOX
+    }
+    Fl_Check_Button labelAtomNamesToggle {
+      label Atom
+      callback labelAtomNamesCB
+      xywh {120 250 60 25} down_box DIAMOND_DOWN_BOX
+    }
+    Fl_Check_Button showResidueAnglesToggle {
+      label {Dihedral Angles}
+      callback showResidueAnglesCB
+      xywh {180 250 125 25} down_box DIAMOND_DOWN_BOX
+    }
+    Fl_Choice residueDialogStructureTypeChoice {
+      label {Structure type}
+      callback residueDialogStructureTypeCB
+      xywh {100 95 205 25} down_box BORDER_BOX
+    } {
+      menuitem {} {
+        label Coil
+        xywh {15 15 100 20}
+      }
+      menuitem {} {
+        label {Alpha Helix}
+        xywh {15 15 100 20}
+      }
+      menuitem {} {
+        label {Beta Strand}
+        xywh {15 15 100 20}
+      }
+      menuitem {} {
+        xywh {15 15 100 20}
+      }
+    }
+  }
+  Fl_Window structureDialog {
+    label {Structure Dialog}
+    callback windowCB
+    xywh {548 508 310 335} type Double hide
+  } {
+    Fl_Value_Slider structureDialogStructureIndexSlider {
+      label {Structure index}
+      callback structureDialogStructureIndexCB
+      xywh {110 5 195 25} type {Horz Knob} align 4 maximum 10 step 1
+    }
+    Fl_Choice structureDialogStructureTypeChoice {
+      label {Structure type}
+      xywh {110 35 195 25} down_box BORDER_BOX
+    } {
+      menuitem {} {
+        label Coil
+        xywh {5 5 100 20}
+      }
+      menuitem {} {
+        label {Alpha Helix}
+        xywh {5 5 100 20}
+      }
+      menuitem {} {
+        label {Beta Strand}
+        xywh {5 5 100 20}
+      }
+    }
+    Fl_Group {} {
+      label {Residue Index Range}
+      xywh {5 65 300 55} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Value_Output structureDialogFirstResidueIndexOutput {
+        label {First index}
+        xywh {85 90 65 25} step 1
+      }
+      Fl_Value_Output structureDialogLastResidueIndexOutput {
+        label {Last index}
+        xywh {235 90 65 25} step 1
+      }
+    }
+    Fl_Group {} {
+      label {Beta Strand Shape Adjustment} open
+      xywh {5 125 300 205} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Roller structureDialogCurlRoller {
+        label {B-strand curl}
+        callback structureDialogCurlCB
+        xywh {110 150 190 25} type Horizontal box DOWN_FRAME align 4 minimum -180 maximum 180 step 0.05
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller structureDialogTwistRoller {
+        label {B-strand twist}
+        callback structureDialogTwistCB
+        xywh {110 180 190 25} type Horizontal box DOWN_FRAME align 4 minimum -180 maximum 180 step 0.05
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller structureDialogPleatRoller {
+        label {B-strand pleat}
+        callback structureDialogPleatCB
+        xywh {110 210 190 25} type Horizontal box DOWN_FRAME align 4 minimum -180 maximum 180 step 0.05
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller structureDialogBraidRoller {
+        label {B-strand braid}
+        callback structureDialogBraidCB
+        xywh {110 240 190 25} type Horizontal box DOWN_FRAME align 4 minimum -180 maximum 180 step 0.05
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Button structureDialogFlattenBetaStrandButton {
+        label {Flatten B-strand}
+        callback structureDialogFlattenBetaStrandCB
+        xywh {110 270 190 25}
+      }
+      Fl_Button structureDialogResetBetaStrandButton {
+        label {Reset to Standard}
+        callback structureDialogResetBetaStrandCB
+        xywh {110 300 190 25}
+      }
+    }
+  }
+  Fl_Window sequenceDialog {
+    label {Sequence Dialog}
+    callback windowCB
+    xywh {495 478 700 100} type Double hide
+  } {
+    Fl_Box sequenceDialogSequenceWidget {
+      xywh {5 5 690 25} box DOWN_BOX
+      code0 {\#include "SequenceWidget.h"}
+      class SequenceWidget
+    }
+  }
+  Fl_Window renderingDialog {
+    label {Drawing Toggles  Dialog}
+    callback windowCB
+    xywh {300 177 240 600} type Double hide
+  } {
+    Fl_Group {} {
+      label {Global Parameters}
+      xywh {5 5 230 305} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Check_Button renderingDialogDrawAtomsToggle {
+        label {Draw atoms}
+        callback renderingDialogDrawAtomsCB
+        xywh {10 30 100 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawBondsToggle {
+        label {Draw side chain bonds}
+        callback renderingDialogDrawBondsCB
+        xywh {10 55 170 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawBackboneToggle {
+        label {Draw backbone ribbon}
+        callback renderingDialogDrawBackboneCB
+        xywh {10 80 170 25} down_box DIAMOND_DOWN_BOX value 1
+      }
+      Fl_Check_Button renderingDialogDrawCartoonToggle {
+        label {Draw structure cartoons}
+        callback renderingDialogDrawCartoonCB
+        xywh {10 105 180 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawHydrogenBondsToggle {
+        label {Draw hydrogen bonds}
+        callback renderingDialogDrawHydrogenBondsCB
+        xywh {10 130 165 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawHydrogenBondSitesToggle {
+        label {Draw hydrogen bond sites}
+        callback renderingDialogDrawHydrogenBondSitesCB
+        xywh {10 155 190 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawHydrogenCagesToggle {
+        label {Draw hydrogen cages}
+        callback renderingDialogDrawHydrogenCagesCB
+        xywh {10 180 165 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawCPKToggle {
+        label {Draw CPK}
+        callback renderingDialogDrawCPKCB
+        xywh {10 205 165 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawTubeToggle {
+        label {Draw tube}
+        callback renderingDialogDrawTubeCB
+        xywh {10 230 165 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawLineToggle {
+        label {Draw line}
+        callback renderingDialogDrawLineCB
+        xywh {10 255 165 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogDrawCollisionsToggle {
+        label {Visualize atom collisions}
+        callback renderingDialogDrawCollisionsCB
+        xywh {10 280 180 25} down_box DIAMOND_DOWN_BOX
+      }
+    }
+    Fl_Group {} {
+      label {Structure Parameters}
+      xywh {5 315 230 280} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Check_Button renderingDialogStructureDrawAtomsToggle {
+        label {Draw atoms}
+        callback renderingDialogStructureDrawAtomsCB
+        xywh {10 340 100 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawBondsToggle {
+        label {Draw side chain bonds}
+        callback renderingDialogStructureDrawBondsCB
+        xywh {10 365 170 25} down_box DIAMOND_DOWN_BOX value 1
+      }
+      Fl_Check_Button renderingDialogStructureDrawBackboneToggle {
+        label {Draw backbone ribbon}
+        callback renderingDialogStructureDrawBackboneCB
+        xywh {10 390 170 25} down_box DIAMOND_DOWN_BOX value 1
+      }
+      Fl_Check_Button renderingDialogStructureDrawHydrogenBondSitesToggle {
+        label {Draw hydrogen bond sites}
+        callback renderingDialogStructureDrawHydrogenBondSitesCB
+        xywh {10 415 190 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawCartoonToggle {
+        label {Draw structure cartoons}
+        callback renderingDialogStructureDrawCartoonCB
+        xywh {10 440 180 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawCPKToggle {
+        label {Draw structure CPK}
+        callback renderingDialogStructureDrawCPKCB
+        xywh {10 465 180 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawTubeToggle {
+        label {Draw structure tube}
+        callback renderingDialogStructureDrawTubeCB
+        xywh {10 490 180 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawLineToggle {
+        label {Draw structure line}
+        callback renderingDialogStructureDrawLineCB
+        xywh {10 515 180 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawHydrogenCagesToggle {
+        label {Draw hydrogen cages}
+        callback renderingDialogStructureDrawHydrogenCagesCB
+        xywh {10 540 165 25} down_box DIAMOND_DOWN_BOX
+      }
+      Fl_Check_Button renderingDialogStructureDrawLargeHydrogenCagesToggle {
+        label {Draw large hydrogen cages}
+        callback renderingDialogStructureDrawLargeHydrogenCagesCB
+        xywh {30 565 200 25} down_box DIAMOND_DOWN_BOX value 1 deactivate
+      }
+    }
+  }
+  Fl_Window energyDialog {
+    label {Energy Visualization Dialog}
+    callback windowCB
+    xywh {512 506 330 305} type Double hide
+  } {
+    Fl_Value_Output energyDialogEnergyValueOutput {
+      label {Internal energy}
+      xywh {145 5 180 25}
+    }
+    Fl_Button energyDialogRecalculateButton {
+      label {Recalculate Energy}
+      callback energyDialogRecalculateCB
+      xywh {95 35 230 25}
+    }
+    Fl_Check_Button energyDialogVisualizeEnergyToggle {
+      label {Visualize energy}
+      callback energyDialogVisualizeEnergyCB
+      xywh {5 155 135 25} down_box DIAMOND_DOWN_BOX
+    }
+    Fl_Check_Button energyDialogDisplayEnergyToggle {
+      label {Display energy}
+      callback energyDialogDisplayEnergyCB
+      xywh {145 155 130 25} down_box DIAMOND_DOWN_BOX
+    }
+    Fl_Value_Input energyUpdateRatInput {
+      label sec
+      callback energyUpdateRatInputCB
+      xywh {300 155 25 25}
+    }
+    Fl_Group {} {
+      label {Energy Mapping Range} open
+      xywh {5 210 320 55} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Value_Input energyDialogRangeMinInput {
+        label Min
+        callback energyDialogRangeMinCB
+        xywh {40 235 115 25}
+      }
+      Fl_Value_Input energyDialogRangeMaxInput {
+        label Max
+        callback energyDialogRangeMaxCB
+        xywh {205 235 115 25}
+      }
+    }
+    Fl_Group energyDialogComponentGroup {
+      label {Visualized Energy Components}
+      xywh {5 270 320 30} box ENGRAVED_FRAME align 17
+    } {}
+    Fl_Button energyDialogOptimizeButton {
+      label {Run Local Optimization}
+      callback energyDialogOptimizeCB
+      xywh {95 65 230 25}
+    }
+    Fl_Button energyDialogVolumeButton {
+      label {Show Volume Rendering Dialog...}
+      callback energyDialogVolumeCB
+      xywh {95 95 230 25}
+    }
+    Fl_Check_Button energyDialogRecordButton {
+      label {Record minimization states to file}
+      xywh {5 180 240 25} down_box DIAMOND_DOWN_BOX
+    }
+    Fl_Button energyDialogLoadRecordButton {
+      label {Load Minimization Record...}
+      callback energyDialogLoadRecordCB
+      xywh {95 125 230 25}
+    }
+  }
+  Fl_Window aboutDialog {
+    label {About ProteinShop}
+    callback windowCB
+    xywh {524 252 235 205} type Double hide modal
+  } {
+    Fl_Button {} {
+      label {ProteinShop v. 3.0}
+      xywh {5 5 225 25} box NO_BOX labelfont 1
+    }
+    Fl_Button {} {
+      label {Interactive Protein Manipulation}
+      xywh {5 30 225 25} box NO_BOX
+    }
+    Fl_Button {} {
+      label {Copyright (c) 2001 - 2005}
+      xywh {5 60 225 25} box NO_BOX
+    }
+    Fl_Button {} {
+      label {The Regents of}
+      xywh {5 85 225 25} box NO_BOX
+    }
+    Fl_Button {} {
+      label {The University of California}
+      xywh {5 110 225 25} box NO_BOX
+    }
+    Fl_Button {} {
+      label {See LICENSE.TXT file for details.}
+      xywh {5 135 225 25} box NO_BOX
+    }
+    Fl_Return_Button aboutDialogOkButton {
+      label OK
+      callback aboutDialogOkCB
+      xywh {140 170 90 30}
+    }
+  }
+  Fl_Window ramachandranPlotWindow {
+    label {Ramachandran Plot}
+    callback windowCB
+    xywh {448 314 250 250} type Double hide resizable
+  } {
+    Fl_Box ramachandranPlot {
+      xywh {0 0 250 250} resizable
+      code0 {\#include "RamachandranPlot.h"}
+      class RamachandranPlot
+    }
+  }
+  Fl_Window selectionDialog {
+    label {Protein Selection Dialog}
+    callback windowCB
+    xywh {648 335 490 260} type Double hide
+  } {
+    Fl_Group {} {
+      label Position open
+      xywh {10 130 230 120} box ENGRAVED_BOX align 17
+    } {
+      Fl_Roller selectionDialogXRoller {
+        label X
+        callback selectionDialogXRollerCB
+        xywh {35 155 190 25} type Horizontal align 4 minimum -1e+300 maximum 1e+300 step 0.1
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller selectionDialogYRoller {
+        label Y
+        callback selectionDialogYRollerCB
+        xywh {35 185 190 25} type Horizontal align 4 minimum -1e+300 maximum 1e+300 step 0.1
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller selectionDialogZRoller {
+        label Z
+        callback selectionDialogZRollerCB
+        xywh {35 215 190 25} type Horizontal align 4 minimum -1e+300 maximum 1e+300 step 0.1
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+    }
+    Fl_Group {} {
+      label Orientation open
+      xywh {250 130 230 120} box ENGRAVED_BOX align 17
+    } {
+      Fl_Roller selectionDialogXYRoller {
+        label XY
+        callback selectionDialogXYRollerCB
+        xywh {285 155 185 25} type Horizontal align 4 minimum -1e+300 maximum 1e+300 step 0.01
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller selectionDialogYZRoller {
+        label YZ
+        callback selectionDialogYZRollerCB
+        xywh {285 185 185 25} type Horizontal align 4 minimum -1e+300 maximum 1e+300 step 0.01
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+      Fl_Roller selectionDialogXZRoller {
+        label XZ
+        callback selectionDialogXZRollerCB
+        xywh {285 215 185 25} type Horizontal align 4 minimum -1e+300 maximum 1e+300 step 0.01
+        code0 {\#include "MyRoller.h"}
+        class MyRoller
+      }
+    }
+    Fl_Button selectionDialogRemoveButton {
+      label Remove
+      callback selectionDialogRemoveButtonCB
+      xywh {355 20 125 25}
+    }
+    Fl_Button selectionDialogAlignButton {
+      label Align
+      callback selectionDialogAlignButtonCB
+      xywh {355 80 125 25}
+    }
+    Fl_Round_Button {} {
+      label A
+      callback alignBaseAllCB
+      xywh {355 105 20 20} type Radio down_box ROUND_DOWN_BOX
+    }
+    Fl_Round_Button {} {
+      label B
+      callback alignBaseBackboneCB
+      xywh {390 105 20 20} type Radio down_box ROUND_DOWN_BOX
+    }
+    Fl_Round_Button {} {
+      label C
+      callback alignBaseCalphaCB
+      xywh {425 105 20 20} type Radio down_box ROUND_DOWN_BOX value 1
+    }
+    Fl_Browser selectionDialogBrowser {
+      label Protein
+      callback selectionDialogBrowserCB
+      xywh {10 20 335 100} type Multi align 1
+      code0 {\#include <FL/Fl_Multi_Browser.H>}
+      class Fl_Multi_Browser
+    }
+    Fl_Button selectionDialogCenterViewButton {
+      label {Center View}
+      callback selectionDialogCenterViewButtonCB
+      xywh {355 50 125 25}
+    }
+  }
+  Fl_Window volumeDialog {
+    label {Energy Rendering Dialog}
+    callback windowCB open selected
+    xywh {461 21 330 500} type Double visible
+  } {
+    Fl_Button volumeDialogSampleButton {
+      label {Generate Texture}
+      callback volumeDialogSampleCB
+      xywh {145 5 180 25}
+    }
+    Fl_Value_Slider volumeDialogRadiusSlider {
+      label {Radius multiplier}
+      callback volumeDialogRadiusMultiplierCB
+      xywh {145 35 180 25} type Horizontal align 4 minimum 0.1 maximum 10 value 1
+    }
+    Fl_Value_Slider volumeDialogResolutionSlider {
+      label {Texels per angstrom}
+      callback volumeDialogResolutionCB
+      xywh {145 65 180 25} type Horizontal align 4 minimum 0.1 maximum 10 value 1
+    }
+    Fl_Choice volumeDialogClassifierChoice {
+      label Classifier
+      callback volumeDialogClassifierChoiceCB open
+      xywh {70 95 255 25} down_box BORDER_BOX
+    } {}
+    Fl_Group volumeDialogClassifierGroup {
+      label {?? Classifier (?? classes)} open
+      xywh {5 125 320 110} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Choice volumeDialogColorChoice {
+        label {Color function for the ?? class}
+        callback volumeDialogColorChoiceCB
+        xywh {15 170 305 25} down_box BORDER_BOX align 5
+      } {}
+      Fl_Button volumeDialogNextClassButton {
+        label {Next Class}
+        callback volumeDialogNextClassButtonCB
+        xywh {15 200 145 25}
+      }
+      Fl_Button volumeDialogPreviousClassButton {
+        label {Previous Class}
+        callback volumeDialogPreviousClassButtonCB
+        xywh {175 200 145 25}
+      }
+    }
+    Fl_Group volumeDialogChannelGroup {
+      label {Input Channel} open
+      xywh {5 240 320 55} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Round_Button volumeDialogSubsetSumRadioButton {
+        label {Energy subset sum}
+        callback volumeDialogChannelCB
+        xywh {15 265 150 25} type Radio down_box ROUND_DOWN_BOX
+      }
+      Fl_Round_Button volumeDialogGradientRadioButton {
+        label {Gradient norm}
+        callback volumeDialogChannelCB
+        xywh {200 265 120 25} type Radio down_box ROUND_DOWN_BOX
+      }
+    }
+    Fl_Group volumeDialogRadiusTypeGroup {
+      label {Radial Basis Function Coefficient Type} open
+      xywh {5 300 320 105} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Round_Button volumeDialogUniformRadioButton {
+        label {Uniform (radius in angstroms)}
+        callback volumeDialogRadiusTypeCB
+        xywh {15 325 225 25} type Radio down_box ROUND_DOWN_BOX
+      }
+      Fl_Round_Button volumeDialogVDWRadioButton {
+        label {Relative (multiple of Van der Waals radius)}
+        callback volumeDialogRadiusTypeCB
+        xywh {15 375 300 25} type Radio down_box ROUND_DOWN_BOX
+      }
+      Fl_Round_Button volumeDialogRadiusRadioButton {
+        label {Relative (multiple of atom radius)}
+        callback volumeDialogRadiusTypeCB
+        xywh {15 350 235 25} type Radio down_box ROUND_DOWN_BOX
+      }
+    }
+    Fl_Group volumeDialogRangeGroup {
+      label {Normalizing Interval} open
+      xywh {5 410 320 85} box ENGRAVED_FRAME align 17
+    } {
+      Fl_Check_Button volumeDialogAutoNormalizeToggle {
+        label {Calculate automatically}
+        callback volumeDialogAutoNormalizeToggleCB
+        xywh {15 435 175 25} down_box DIAMOND_DOWN_BOX value 1
+      }
+      Fl_Value_Input volumeDialogRangeMinInput {
+        label Min
+        callback volumeDialogNormIntervalCB
+        xywh {40 465 110 25} deactivate
+      }
+      Fl_Value_Input volumeDialogRangeMaxInput {
+        label Max
+        callback volumeDialogNormIntervalCB
+        xywh {205 465 110 25} deactivate
+      }
+    }
+  }
+  Fl_Window recordDialog {
+    label {Record Dialog}
+    callback windowCB
+    xywh {461 217 345 150} type Double hide
+  } {
+    Fl_Output recordDialogFileNameOutput {
+      label {File name}
+      xywh {70 10 270 25}
+      code0 {{ recordDialogFileNameOutput->cursor_color (recordDialogFileNameOutput->color()); }}
+    }
+    Fl_Counter recordDialogCounter {
+      label {Current record number}
+      callback recordDialogCounterCB
+      xywh {5 60 335 25} align 1 when 4 minimum 0 maximum 1023 step 1
+    }
+    Fl_Value_Slider recordDialogSlider {
+      callback recordDialogSliderCB
+      xywh {5 90 335 25} type Horizontal align 0 when 4 maximum 1023 step 1
+    }
+    Fl_Value_Input recordDialogFrameStepInput {
+      label {Frame step}
+      xywh {80 120 40 25} maximum 0 value 20
+    }
+    Fl_Button recordDialogGenerateButton {
+      label {Generate Video Frames}
+      callback recordDialogGenerateCB
+      xywh {125 120 215 25}
+    }
+  }
+} 
