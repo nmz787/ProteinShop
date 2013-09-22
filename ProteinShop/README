@@ -1,4 +1,4 @@
-README file for ProteinShop v3.1.1			https://github.com/nmz787/protein-shop
+README file for ProteinShop v3.1.1			https://github.com/nmz787/ProteinShop
 
 Quick Install Instructions:
 sudo apt-get install build-essential fluid libfltk1.3 libfltk1.3-dev libfltk-gl1.3
